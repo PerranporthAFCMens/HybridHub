@@ -57,4 +57,17 @@
   // Start on the first day that still has classes (late evening, today may be finished).
   var first=lists.filter(function(l){return l.querySelector('.tt-row')})[0]||lists[0];
   if(first)show(first.getAttribute('data-day'));
+  // Day / Week switch. The visitor's choice is remembered on their device.
+  var views=tt.querySelector('.tt-views'),dayview=tt.querySelector('.tt-dayview'),week=tt.querySelector('.tt-week');
+  if(!views||!week)return;
+  var btns=[].slice.call(views.querySelectorAll('button'));
+  function view(v){
+    btns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-view')===v)});
+    dayview.hidden=v==='week';week.hidden=v!=='week';
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-view');view(v);try{localStorage.setItem('tt-view',v)}catch(e){}})});
+  var saved=null;try{saved=localStorage.getItem('tt-view')}catch(e){}
+  var def=tt.getAttribute('data-default-view')==='day'?'day':'week';
+  views.hidden=false;
+  view(saved==='day'||saved==='week'?saved:(window.matchMedia('(max-width:600px)').matches?'day':def));
 })();

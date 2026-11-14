@@ -72,6 +72,14 @@ content:
           values:
             - { value: own, label: Our design }
             - { value: embed, label: WodBoard's design }
+      - name: timetable_default_view
+        label: Timetable opens on (our design only)
+        type: select
+        description: "Visitors can switch between Day and Week on the page. Phones always start on Day."
+        options:
+          values:
+            - { value: week, label: Week }
+            - { value: day, label: Day }
       - { name: timetable_book_label, label: Book button text, type: string }
       - { name: timetable_book_url, label: Book button link, type: string }
       - { name: timetable_data_url, label: "WodBoard class data link (our design only, don't change)", type: string }
