@@ -123,7 +123,6 @@ function build() {
     memberships: readJSON('memberships'),
     visit: readJSON('visit'),
   });
-  data.home_plans = data.memberships.plans.filter((p) => p.show_on_home);
 
   fs.rmSync(OUT, { recursive: true, force: true });
   fs.mkdirSync(OUT, { recursive: true });

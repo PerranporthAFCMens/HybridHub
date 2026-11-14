@@ -10,10 +10,26 @@
     "link_url": "train.html#timetable"
   },
   "cards": [
-    { "image": "/images/class-zone.jpg", "image_alt": "The Hybrid Hub class zone", "title": "Classes", "text": "Coached hybrid classes, from 6am to evening.", "link": "train.html#classes" },
-    { "image": "/images/open-gym.jpg", "image_alt": "Strength equipment in the open gym", "title": "Open gym", "text": "Top-tier equipment, on your own schedule.", "link": "memberships.html" },
-    { "image": "/images/platform.jpg", "image_alt": "A Hybrid Hub branded lifting platform", "title": "New? Start here", "text": "Small group training. More support. More confidence.", "link": "train.html#start" }
-  ],
-  "memberships_title": "Memberships",
-  "memberships_link_label": "See all"
+    {
+      "image": "/images/class-zone.jpg",
+      "image_alt": "The Hybrid Hub class zone",
+      "title": "Classes",
+      "text": "Coached hybrid classes, from 6am to evening.",
+      "link": "train.html#classes"
+    },
+    {
+      "image": "/images/open-gym.jpg",
+      "image_alt": "Strength equipment in the open gym",
+      "title": "Open gym",
+      "text": "Top-tier equipment, on your own schedule.",
+      "link": "memberships.html"
+    },
+    {
+      "image": "/images/platform.jpg",
+      "image_alt": "A Hybrid Hub branded lifting platform",
+      "title": "New? Start here",
+      "text": "Small group training. More support. More confidence.",
+      "link": "train.html#start"
+    }
+  ]
 }
