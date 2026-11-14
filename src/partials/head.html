@@ -3,6 +3,15 @@
 {{^site.launched}}<meta name="robots" content="noindex,nofollow,noarchive">
 {{/site.launched}}<meta name="description" content="{{site.description}}">
 <meta name="theme-color" content="#f5f4f0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+{{#site.site_url}}<link rel="canonical" href="{{page_url}}">
+<meta property="og:url" content="{{page_url}}">
+<meta property="og:image" content="{{og_image}}">
+{{/site.site_url}}<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{site.title}}">
+<meta property="og:title" content="{{site.title}}">
+<meta property="og:description" content="{{site.description}}">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
