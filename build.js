@@ -197,13 +197,24 @@ async function build() {
   for (const page of PAGES) {
     const file = page + '.html';
     const tpl = fs.readFileSync(path.join(ROOT, 'src', file), 'utf8');
-    const ctx = Object.assign({}, data, { page, ['is_' + page]: true });
+    const base = String(data.site.site_url || '').replace(/\/+$/, '');
+    const ctx = Object.assign({}, data, {
+      page, ['is_' + page]: true,
+      page_url: base + (page === 'index' ? '/' : '/' + file),
+      og_image: base + '/' + String(data.home.hero.image || '').replace(/^\//, ''),
+    });
     fs.writeFileSync(path.join(OUT, file), render(tpl, [ctx], file));
   }
-  for (const f of ['site.css', 'site.js']) fs.copyFileSync(path.join(ROOT, 'src', f), path.join(OUT, f));
+  for (const f of ['site.css', 'site.js', 'favicon.svg', '404.html']) fs.copyFileSync(path.join(ROOT, 'src', f), path.join(OUT, f));
   copyDir(path.join(ROOT, 'images'), path.join(OUT, 'images'));
   // Until launch, ask search engines not to list the site (each page also carries a noindex tag).
-  fs.writeFileSync(path.join(OUT, 'robots.txt'), data.site.launched ? 'User-agent: *\nAllow: /\n' : 'User-agent: *\nDisallow: /\n');
+  const siteBase = String(data.site.site_url || '').replace(/\/+$/, '');
+  const listed = data.site.launched && siteBase;
+  fs.writeFileSync(path.join(OUT, 'robots.txt'), data.site.launched ? 'User-agent: *\nAllow: /\n' + (listed ? `Sitemap: ${siteBase}/sitemap.xml\n` : '') : 'User-agent: *\nDisallow: /\n');
+  if (listed) {
+    const urls = PAGES.map((p) => `  <url><loc>${siteBase}${p === 'index' ? '/' : '/' + p + '.html'}</loc></url>`).join('\n');
+    fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
+  }
   fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
   console.log(`Built ${PAGES.length} pages into _site/ (${data.site.launched ? 'launched' : 'preview, not indexed'})`);
 }

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Page not found · Hybrid Hub Newquay</title>
+<script>
+/* Old addresses from the Wix site, sent to their new pages so existing links and Google results keep working. */
+(function(){
+  var base = location.pathname.indexOf('/HybridHub/') === 0 ? '/HybridHub/' : '/';
+  var p = location.pathname.slice(base.length).replace(/\/+$/, '').toLowerCase();
+  var map = {
+    'applytojointhehub': 'apply.html',
+    'registerforstart': 'start.html',
+    'hyperice': 'recovery.html',
+    'book-online': 'train.html',
+    'pricing-plans': 'memberships.html',
+    'service-page': 'train.html',
+    'xmasparty': '',
+    'blank': '', 'blank-1': '', 'blank-2': '', 'blank-3': '', 'copy-of-founders5': ''
+  };
+  var key = p.split('/')[0];
+  if (key in map) { location.replace(base + map[key]); return; }
+  document.documentElement.setAttribute('data-base', base);
+})();
+</script>
+<style>
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:#f5f4f0;color:#0b0b0b;font:400 17px/1.6 system-ui,sans-serif;text-align:center;padding:24px}
+h1{font:800 32px/1.1 ui-monospace,Menlo,monospace;text-transform:uppercase;margin:0 0 12px}
+a{display:inline-block;margin-top:16px;padding:12px 24px;border-radius:999px;background:#0b0b0b;color:#fff;text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+<main>
+<h1>Page not found</h1>
+<p>That page has moved or no longer exists.</p>
+<a id="home" href="/">Go to the home page</a>
+</main>
+<script>document.getElementById('home').href = document.documentElement.getAttribute('data-base') || '/';</script>
+</body>
+</html>

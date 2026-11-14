@@ -262,6 +262,7 @@ content:
     format: json
     fields:
       - { name: launched, label: "Site is launched (shows to search engines, hides the preview banner)", type: boolean }
+      - { name: site_url, label: "Web address (don't change unless the domain changes)", type: string }
       - { name: title, label: Site name (browser tab), type: string }
       - { name: description, label: Description for Google, type: text }
       - { name: footer_line, label: Footer text, type: string }
