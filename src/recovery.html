@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+{{> head}}
+<title>{{recovery.title}} · {{site.title}}</title>
+</head>
+<body>
+{{> header}}
+<main>
+{{#recovery}}
+<section aria-labelledby="t">
+  <div class="wrap row">
+    <div>
+      <h1 id="t">{{title}}</h1>
+      <p class="lead">{{intro}}</p>
+      <p class="note">{{pay_note}}</p>
+    </div>
+    <div class="photo"><img src="{{image}}" alt="{{image_alt}}"></div>
+  </div>
+</section>
+<section style="padding-top:0" aria-label="Recovery equipment">
+  <div class="wrap kit">
+    {{#items}}<article class="kit-item">
+      <span class="kit-num">0{{index}}</span>
+      <h2>{{title}}</h2>
+      <p>{{text}}</p>
+      {{#video_url}}<a class="link" href="{{video_url}}" target="_blank" rel="noopener">{{video_label}}</a>{{/video_url}}
+    </article>
+    {{/items}}
+  </div>
+</section>
+<section style="padding-top:0" aria-labelledby="c">
+  <div class="wrap">
+    <div class="announce">
+      <div><h2 id="c">{{closing_title}}</h2><p>{{closing_text}}</p></div>
+      {{#book_url}}<div class="actions"><a class="btn" href="{{book_url}}" target="_blank" rel="noopener">{{book_label}}</a></div>{{/book_url}}
+    </div>
+  </div>
+</section>
+{{/recovery}}
+</main>
+{{> footer}}
+</body>
+</html>

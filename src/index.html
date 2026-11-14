@@ -12,13 +12,30 @@
 <section class="hero" style="padding:0" aria-labelledby="t">
   {{#home.hero}}<img src="{{image}}" alt="{{image_alt}}" fetchpriority="high">
   <div class="wrap">
+    {{#home.kicker}}<p class="kicker">{{home.kicker}}</p>{{/home.kicker}}
     <h1 id="t">{{title}}</h1>
     <p>{{text}}</p>
     <div class="actions"><a class="btn light" href="{{button_link}}">{{button_label}}</a><a class="link" href="{{link_url}}">{{link_label}}</a></div>
   </div>{{/home.hero}}
 </section>
 
+{{#home.announcement.show}}{{#home.announcement}}<section class="announce-wrap" aria-labelledby="a">
+  <div class="wrap">
+    <div class="announce">
+      <div>
+        <p class="kicker">{{date}}</p>
+        <h2 id="a">{{title}}</h2>
+        <p>{{text}}</p>
+      </div>
+      <div class="actions">{{#buttons}}<a class="btn{{^odd}} ghost{{/odd}}" href="{{url}}" target="_blank" rel="noopener">{{label}}</a>{{/buttons}}</div>
+    </div>
+  </div>
+</section>
+{{/home.announcement}}{{/home.announcement.show}}
 <section aria-label="Ways to train">
+  <div class="wrap">
+    {{#home.affiliations}}<p class="affiliations">{{home.affiliations}}</p>{{/home.affiliations}}
+  </div>
   <div class="wrap three">
     {{#home.cards}}<a href="{{link}}"><div class="photo"><img loading="lazy" src="{{image}}" alt="{{image_alt}}"></div><h3>{{title}}</h3><p>{{text}}</p></a>
     {{/home.cards}}

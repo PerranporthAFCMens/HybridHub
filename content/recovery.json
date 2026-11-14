@@ -1,0 +1,29 @@
+{
+  "title": "Recovery",
+  "intro": "Take your recovery seriously with professional-grade Hyperice recovery technology at Hybrid Hub. Whether you're recovering after a hard session, preparing for the next one or simply giving your body some extra attention, our recovery zone gives you the tools to do it.",
+  "image": "/images/recovery.jpg",
+  "image_alt": "Conditioning equipment at Hybrid Hub",
+  "pay_note": "Pay for your recovery slot via the WodBoard shop before use.",
+  "items": [
+    {
+      "title": "Normatec",
+      "text": "Dynamic air compression designed to support circulation and help your legs feel refreshed after training.",
+      "video_url": "https://www.youtube.com/watch?v=f9cE-mGir2E"
+    },
+    {
+      "title": "Hyperice X Knee",
+      "text": "Targeted contrast therapy, combining hot and cold treatment to support circulation, reduce soreness and aid recovery around the knee.",
+      "video_url": "https://www.youtube.com/watch?v=Xpd1aiOsRjI"
+    },
+    {
+      "title": "Vyper",
+      "text": "A vibrating foam roller designed to help activate muscles, release tension and improve mobility.",
+      "video_url": "https://www.youtube.com/watch?v=ZflSQZuUEMs"
+    }
+  ],
+  "video_label": "How to use it",
+  "closing_title": "Train. Recover. Perform.",
+  "closing_text": "Book your recovery slot through the WodBoard shop and make recovery part of your training routine.",
+  "book_label": "Book a recovery slot",
+  "book_url": ""
+}

@@ -15,7 +15,8 @@ const path = require('path');
 
 const ROOT = __dirname;
 const OUT = path.join(ROOT, '_site');
-const PAGES = ['index', 'train', 'memberships', 'visit', 'apply'];
+const PAGES = ['index', 'train', 'memberships', 'visit', 'apply', 'start', 'recovery'];
+const FIELD_TYPES = ['text', 'email', 'tel', 'date', 'radio', 'checkboxes', 'textarea'];
 
 function readJSON(name) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, 'content', name + '.json'), 'utf8'));
@@ -115,6 +116,20 @@ function copyDir(from, to) {
   }
 }
 
+// Form questions are edited in Pages CMS as a label, a type and (for choices) options.
+// Give each one a field name from its label and a flag for its type, for the template.
+function prepareFields(fields, file) {
+  const used = {};
+  return (fields || []).map((f, i) => {
+    const type = FIELD_TYPES.includes(f.type) ? f.type : 'text';
+    let name = String(f.label || 'question').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '').slice(0, 40) || 'question';
+    if (used[name]) name += '_' + (i + 1);
+    used[name] = true;
+    if ((type === 'radio' || type === 'checkboxes') && !(f.options || []).length) console.warn(`Warning: ${file}: "${f.label}" has no choices`);
+    return Object.assign({ required: false, options: [] }, f, { type, name, id: 'f-' + name, ['is_' + type]: true });
+  });
+}
+
 function build() {
   const data = relativeAssets({
     site: readJSON('site'),
@@ -123,7 +138,10 @@ function build() {
     memberships: readJSON('memberships'),
     visit: readJSON('visit'),
     apply: readJSON('apply'),
+    start: readJSON('start'),
+    recovery: readJSON('recovery'),
   });
+  for (const page of ['apply', 'start']) data[page].fields = prepareFields(data[page].fields, page + '.json');
 
   fs.rmSync(OUT, { recursive: true, force: true });
   fs.mkdirSync(OUT, { recursive: true });

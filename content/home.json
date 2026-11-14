@@ -1,4 +1,5 @@
 {
+  "kicker": "Cornwall's newest premium training facility",
   "hero": {
     "image": "/images/hero-team.jpg",
     "image_alt": "Hybrid Hub members and coaches together in the gym",
@@ -29,7 +30,24 @@
       "image_alt": "A Hybrid Hub branded lifting platform",
       "title": "New? Start here",
       "text": "Small group training. More support. More confidence.",
-      "link": "train.html#start"
+      "link": "start.html"
     }
-  ]
+  ],
+  "affiliations": "Proudly affiliated with HYROX, KELTX and ATHX.",
+  "announcement": {
+    "show": true,
+    "date": "Saturday 28 November, 7pm",
+    "title": "Hybrid Hub 1st Birthday & Christmas Ball",
+    "text": "Join us for an unforgettable evening as we celebrate one year of Hybrid Hub at the Nici Hotel, Newquay. Book your spot, then send us your food order for the night.",
+    "buttons": [
+      {
+        "label": "Book your spot",
+        "url": "https://www.wodboard.com/locations/855/workshops/16872/7540b96a"
+      },
+      {
+        "label": "Submit your food order",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSc-SugOZNziZw27vpu0dqmNdfEs6nJktBC3cp1U-QInH0q82A/viewform"
+      }
+    ]
+  }
 }

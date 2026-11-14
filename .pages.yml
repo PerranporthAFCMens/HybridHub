@@ -15,6 +15,7 @@ content:
     path: content/home.json
     format: json
     fields:
+      - { name: kicker, label: Small line above the headline, type: string }
       - name: hero
         label: Top of the page
         type: object
@@ -27,6 +28,22 @@ content:
           - { name: button_link, label: Button link, type: string }
           - { name: link_label, label: Second link text, type: string }
           - { name: link_url, label: Second link, type: string }
+      - name: announcement
+        label: Announcement (events, news)
+        type: object
+        fields:
+          - { name: show, label: Show on the home page, type: boolean }
+          - { name: date, label: Date line, type: string }
+          - { name: title, label: Heading, type: string }
+          - { name: text, label: Text, type: text }
+          - name: buttons
+            label: Buttons
+            type: object
+            list: { max: 2 }
+            fields:
+              - { name: label, label: Button text, type: string }
+              - { name: url, label: Link, type: string }
+      - { name: affiliations, label: Affiliations line, type: string }
       - name: cards
         label: Three photo cards
         type: object
@@ -123,18 +140,101 @@ content:
     format: json
     fields:
       - { name: title, label: Page title, type: string }
-      - { name: intro_paragraphs, label: Intro, type: text, list: true }
+      - { name: intro, label: Intro, type: text }
+      - { name: image, label: Photo, type: image }
+      - { name: image_alt, label: Photo description, type: string }
+      - { name: points_title, label: Heading above the numbered list, type: string }
+      - { name: points, label: Numbered list, type: string, list: true }
       - { name: form_heading, label: Form heading, type: string }
       - { name: form_intro, label: Text above the form, type: text }
-      - { name: membership_label, label: Membership question, type: string }
-      - { name: membership_options, label: Membership choices, type: string, list: true }
-      - { name: times_label, label: Class times question, type: string }
-      - { name: time_options, label: Class time choices, type: string, list: true }
-      - { name: message_label, label: Message box label, type: string }
+      - name: fields
+        label: Questions
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{label}" } }
+        fields:
+          - { name: label, label: Question, type: string }
+          - name: type
+            label: Answer type
+            type: select
+            options:
+              values:
+                - { value: text, label: Short text }
+                - { value: email, label: Email address }
+                - { value: tel, label: Phone number }
+                - { value: date, label: Date }
+                - { value: textarea, label: Long text }
+                - { value: radio, label: Pick one }
+                - { value: checkboxes, label: Pick any }
+          - { name: required, label: Must be answered, type: boolean }
+          - { name: options, label: "Choices (for Pick one / Pick any)", type: string, list: true }
       - { name: button_label, label: Send button text, type: string }
+      - { name: success_title, label: Heading after sending, type: string }
       - { name: success_message, label: Message after sending, type: text }
       - { name: email_subject, label: Subject of the email you receive, type: string }
-      - { name: form_key, label: Form key (from web3forms.com), type: string, description: "Applications are emailed to the address this key was created with. Leave it as it is unless you change who receives them." }
+
+  - name: start
+    label: START page
+    type: file
+    path: content/start.json
+    format: json
+    fields:
+      - { name: title, label: Page title, type: string }
+      - { name: intro, label: Intro, type: text }
+      - { name: image, label: Photo, type: image }
+      - { name: image_alt, label: Photo description, type: string }
+      - { name: points_title, label: Heading above the numbered list, type: string }
+      - { name: points, label: Numbered list, type: string, list: true }
+      - { name: form_heading, label: Form heading, type: string }
+      - { name: form_intro, label: Text above the form, type: text }
+      - name: fields
+        label: Questions
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{label}" } }
+        fields:
+          - { name: label, label: Question, type: string }
+          - name: type
+            label: Answer type
+            type: select
+            options:
+              values:
+                - { value: text, label: Short text }
+                - { value: email, label: Email address }
+                - { value: tel, label: Phone number }
+                - { value: date, label: Date }
+                - { value: textarea, label: Long text }
+                - { value: radio, label: Pick one }
+                - { value: checkboxes, label: Pick any }
+          - { name: required, label: Must be answered, type: boolean }
+          - { name: options, label: "Choices (for Pick one / Pick any)", type: string, list: true }
+      - { name: button_label, label: Send button text, type: string }
+      - { name: success_title, label: Heading after sending, type: string }
+      - { name: success_message, label: Message after sending, type: text }
+      - { name: email_subject, label: Subject of the email you receive, type: string }
+
+  - name: recovery
+    label: Recovery page
+    type: file
+    path: content/recovery.json
+    format: json
+    fields:
+      - { name: title, label: Page title, type: string }
+      - { name: intro, label: Intro, type: text }
+      - { name: image, label: Photo, type: image }
+      - { name: image_alt, label: Photo description, type: string }
+      - { name: pay_note, label: Payment note, type: string }
+      - name: items
+        label: Equipment
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{title}" } }
+        fields:
+          - { name: title, label: Name, type: string }
+          - { name: text, label: Description, type: text }
+          - { name: video_url, label: How-to video link, type: string }
+      - { name: video_label, label: Video link text, type: string }
+      - { name: closing_title, label: Closing heading, type: string }
+      - { name: closing_text, label: Closing text, type: text }
+      - { name: book_label, label: Booking button text, type: string }
+      - { name: book_url, label: "Booking link (leave empty to hide the button)", type: string }
 
   - name: site
     label: Site settings
@@ -147,4 +247,5 @@ content:
       - { name: description, label: Description for Google, type: text }
       - { name: footer_line, label: Footer text, type: string }
       - { name: join_label, label: Join button text, type: string }
+      - { name: form_key, label: Form key (from web3forms.com), type: string, description: "Apply and START forms are emailed to the address this key was created with." }
       - { name: preview_banner, label: Preview banner text (only before launch), type: string }

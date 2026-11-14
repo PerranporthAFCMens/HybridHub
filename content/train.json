@@ -11,7 +11,10 @@
       "image": "/images/class-zone.jpg",
       "image_alt": "The Hybrid Hub class zone",
       "title": "Classes",
-      "paragraphs": ["Proudly affiliated with HYROX, KELTX and ATHX.", "06:00 · 07:00 · 09:15 · 17:15 · 18:15"],
+      "paragraphs": [
+        "Proudly affiliated with HYROX, KELTX and ATHX.",
+        "06:00 · 07:00 · 09:15 · 17:15 · 18:15"
+      ],
       "link_label": "Memberships",
       "link_url": "memberships.html"
     },
@@ -20,18 +23,24 @@
       "image": "/images/platform.jpg",
       "image_alt": "A Hybrid Hub branded lifting platform",
       "title": "Hybrid Hub START",
-      "paragraphs": ["Small group training for 4 to 6 people, with 2 coached sessions a week and full gym access included. No experience needed. Just START.", "Monday, Wednesday or Friday at 10:30am or 12:00pm."],
-      "link_label": "Register your interest",
-      "link_url": "https://www.hybridhubnqy.co.uk/registerforstart"
+      "paragraphs": [
+        "Small group training for 4 to 6 people, with 2 coached sessions a week and full gym access included. No experience needed. Just START.",
+        "Monday, Wednesday or Friday at 10:30am or 12:00pm."
+      ],
+      "link_label": "Find out more and register",
+      "link_url": "start.html"
     },
     {
       "anchor": "recovery",
       "image": "/images/recovery.jpg",
       "image_alt": "Conditioning equipment at Hybrid Hub",
       "title": "Recovery",
-      "paragraphs": ["Professional-grade Hyperice recovery: Normatec compression, Hyperice X Knee contrast therapy and the Vyper vibrating roller.", "Pay for your recovery slot via the WodBoard shop before use."],
-      "link_label": "Book a recovery slot",
-      "link_url": "https://www.hybridhubnqy.co.uk/hyperice"
+      "paragraphs": [
+        "Professional-grade Hyperice recovery: Normatec compression, Hyperice X Knee contrast therapy and the Vyper vibrating roller.",
+        "Pay for your recovery slot via the WodBoard shop before use."
+      ],
+      "link_label": "Recovery at Hybrid Hub",
+      "link_url": "recovery.html"
     }
   ]
 }

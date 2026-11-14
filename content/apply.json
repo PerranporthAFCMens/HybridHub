@@ -1,21 +1,65 @@
 {
   "title": "Apply to join",
-  "intro_paragraphs": [
-    "A performance-focused gym, built around community, training and progress.",
-    "Strength training, conditioning, HYROX, ATHX, KELTX and open gym training under one roof, with premium equipment, structured programming and a community that wants to get better."
+  "intro": "A performance-focused gym, built around community, training and progress. Strength training, conditioning, HYROX, ATHX, KELTX and open gym training under one roof.",
+  "image": "/images/hero-team.jpg",
+  "image_alt": "Hybrid Hub members and coaches together in the gym",
+  "points_title": "What happens next",
+  "points": [
+    "Send your application below",
+    "We'll be in touch within 24 hours",
+    "Come in, meet the coaches and start training"
   ],
   "form_heading": "Ready to join?",
-  "form_intro": "Complete the application below and we'll be in touch within 24 hours.",
-  "membership_label": "Membership",
-  "membership_options": [
-    "Full membership, £92.50 a month",
-    "Hybrid 2X (2 classes a week), £72.50 a month"
+  "form_intro": "Complete the application and we'll be in touch within 24 hours.",
+  "fields": [
+    {
+      "label": "Full name",
+      "type": "text",
+      "required": true,
+      "options": []
+    },
+    {
+      "label": "Email address",
+      "type": "email",
+      "required": true,
+      "options": []
+    },
+    {
+      "label": "Phone",
+      "type": "tel",
+      "required": false,
+      "options": []
+    },
+    {
+      "label": "Membership",
+      "type": "radio",
+      "required": true,
+      "options": [
+        "Full membership, £92.50 a month",
+        "Hybrid 2X (2 classes a week), £72.50 a month"
+      ]
+    },
+    {
+      "label": "Class times you'd usually come to",
+      "type": "checkboxes",
+      "required": false,
+      "options": [
+        "6:00am",
+        "7:00am",
+        "9:15am",
+        "5:15pm",
+        "6:15pm"
+      ]
+    },
+    {
+      "label": "Anything else we should know?",
+      "type": "textarea",
+      "required": false,
+      "options": []
+    }
   ],
-  "times_label": "Class times you'd usually come to",
-  "time_options": ["6:00am", "7:00am", "9:15am", "5:15pm", "6:15pm"],
-  "message_label": "Anything else we should know? (optional)",
   "button_label": "Send application",
-  "success_message": "Thanks, your application is in. We'll be in touch within 24 hours.",
-  "email_subject": "New membership application from the website",
-  "form_key": ""
+  "success_title": "Application sent",
+  "success_message": "Thanks, we'll be in touch within 24 hours.",
+  "email_subject": "New membership application from the website"
 }
