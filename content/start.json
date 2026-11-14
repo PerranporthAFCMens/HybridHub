@@ -1,0 +1,67 @@
+{
+  "title": "Hybrid Hub START",
+  "intro": "Small group training. More support. More confidence. START is for anyone who wants to train at Hybrid Hub but would benefit from a little more support and a smaller training environment.",
+  "image": "/images/platform.jpg",
+  "image_alt": "A Hybrid Hub branded lifting platform",
+  "points_title": "How it works",
+  "points": [
+    "The same programming as our regular classes",
+    "Groups of 4 to 6 people",
+    "2 coached sessions a week",
+    "Full gym access included",
+    "Monday, Wednesday or Friday at 10:30am or 12:00pm",
+    "No experience needed. Just START."
+  ],
+  "form_heading": "Register your interest",
+  "form_intro": "Tell us when you can train and we'll be in touch.",
+  "fields": [
+    {
+      "label": "Full name",
+      "type": "text",
+      "required": true,
+      "options": []
+    },
+    {
+      "label": "Email address",
+      "type": "email",
+      "required": true,
+      "options": []
+    },
+    {
+      "label": "Date of birth",
+      "type": "date",
+      "required": true,
+      "options": []
+    },
+    {
+      "label": "Days you can train",
+      "type": "checkboxes",
+      "required": true,
+      "options": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ]
+    },
+    {
+      "label": "Preferred class times",
+      "type": "checkboxes",
+      "required": true,
+      "options": [
+        "10:30am",
+        "12:00pm",
+        "Other"
+      ]
+    },
+    {
+      "label": "Other time (if you picked Other)",
+      "type": "text",
+      "required": false,
+      "options": []
+    }
+  ],
+  "button_label": "Register interest",
+  "success_title": "You're on the list",
+  "success_message": "Thanks for registering your interest in START. We'll be in touch soon.",
+  "email_subject": "New START registration from the website"
+}
