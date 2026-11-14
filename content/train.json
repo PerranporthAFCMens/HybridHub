@@ -2,45 +2,43 @@
   "title": "Train",
   "intro": "Strength training, conditioning, HYROX, ATHX, KELTX and open gym training under one roof.",
   "timetable_title": "A class for everyone",
-  "timetable_link_label": "Open full timetable",
-  "timetable_url": "https://www.wodboard.com/locations/855/timetable/e0ef59abf3",
   "timetable_embed_url": "https://www.wodboard.com/locations/855/timetable/e0ef59abf3?adi=1",
   "sections": [
     {
-      "anchor": "classes",
+      "title": "Classes",
       "image": "/images/class-zone.jpg",
       "image_alt": "The Hybrid Hub class zone",
-      "title": "Classes",
       "paragraphs": [
         "Proudly affiliated with HYROX, KELTX and ATHX.",
         "06:00 · 07:00 · 09:15 · 17:15 · 18:15"
       ],
       "link_label": "Memberships",
-      "link_url": "memberships.html"
+      "link_url": "memberships.html",
+      "anchor": "classes"
     },
     {
-      "anchor": "start",
+      "title": "Hybrid Hub START",
       "image": "/images/platform.jpg",
       "image_alt": "A Hybrid Hub branded lifting platform",
-      "title": "Hybrid Hub START",
       "paragraphs": [
         "Small group training for 4 to 6 people, with 2 coached sessions a week and full gym access included. No experience needed. Just START.",
         "Monday, Wednesday or Friday at 10:30am or 12:00pm."
       ],
       "link_label": "Find out more and register",
-      "link_url": "start.html"
+      "link_url": "start.html",
+      "anchor": "start"
     },
     {
-      "anchor": "recovery",
+      "title": "Recovery",
       "image": "/images/recovery.jpg",
       "image_alt": "Conditioning equipment at Hybrid Hub",
-      "title": "Recovery",
       "paragraphs": [
         "Professional-grade Hyperice recovery: Normatec compression, Hyperice X Knee contrast therapy and the Vyper vibrating roller.",
         "Pay for your recovery slot via the WodBoard shop before use."
       ],
       "link_label": "Recovery at Hybrid Hub",
-      "link_url": "recovery.html"
+      "link_url": "recovery.html",
+      "anchor": "recovery"
     }
   ]
 }
