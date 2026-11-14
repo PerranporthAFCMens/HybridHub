@@ -15,7 +15,7 @@
         "HYROX, ATHX and KELTX training"
       ],
       "button_label": "Apply to join",
-      "button_link": "https://www.hybridhubnqy.co.uk/applytojointhehub"
+      "button_link": "apply.html?plan=Full"
     },
     {
       "name": "Hybrid 2X",
@@ -29,7 +29,7 @@
         "Open gym access"
       ],
       "button_label": "Apply to join",
-      "button_link": "https://www.hybridhubnqy.co.uk/applytojointhehub"
+      "button_link": "apply.html?plan=2X"
     },
     {
       "name": "START",

@@ -116,6 +116,26 @@ content:
           - { name: image, label: Photo, type: image }
           - { name: image_alt, label: Photo description, type: string }
 
+  - name: apply
+    label: Apply page
+    type: file
+    path: content/apply.json
+    format: json
+    fields:
+      - { name: title, label: Page title, type: string }
+      - { name: intro_paragraphs, label: Intro, type: text, list: true }
+      - { name: form_heading, label: Form heading, type: string }
+      - { name: form_intro, label: Text above the form, type: text }
+      - { name: membership_label, label: Membership question, type: string }
+      - { name: membership_options, label: Membership choices, type: string, list: true }
+      - { name: times_label, label: Class times question, type: string }
+      - { name: time_options, label: Class time choices, type: string, list: true }
+      - { name: message_label, label: Message box label, type: string }
+      - { name: button_label, label: Send button text, type: string }
+      - { name: success_message, label: Message after sending, type: text }
+      - { name: email_subject, label: Subject of the email you receive, type: string }
+      - { name: form_key, label: Form key (from web3forms.com), type: string, description: "Applications are emailed to the address this key was created with. Leave it as it is unless you change who receives them." }
+
   - name: site
     label: Site settings
     type: file

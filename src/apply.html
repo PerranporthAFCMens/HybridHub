@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+{{> head}}
+<title>{{apply.title}} · {{site.title}}</title>
+</head>
+<body>
+{{> header}}
+<main>
+{{#apply}}
+<section class="intro" aria-labelledby="t">
+  <div class="wrap">
+    <h1 id="t">{{title}}</h1>
+    {{#intro_paragraphs}}<p>{{.}}</p>{{/intro_paragraphs}}
+  </div>
+</section>
+<section aria-labelledby="f">
+  <div class="wrap apply">
+    <div>
+      <h2 id="f">{{form_heading}}</h2>
+      <p class="muted">{{form_intro}}</p>
+    </div>
+    <form class="form" data-form data-key="{{form_key}}" data-subject="{{email_subject}}" novalidate>
+      <label>Full name<input name="name" autocomplete="name" required></label>
+      <label>Email address<input name="email" type="email" autocomplete="email" required></label>
+      <label>Phone <span class="opt">(optional)</span><input name="phone" type="tel" autocomplete="tel"></label>
+      <fieldset>
+        <legend>{{membership_label}}</legend>
+        {{#membership_options}}<label class="choice"><input type="radio" name="membership" value="{{.}}" required><span>{{.}}</span></label>
+        {{/membership_options}}
+      </fieldset>
+      <fieldset>
+        <legend>{{times_label}}</legend>
+        <div class="chips">{{#time_options}}<label class="chip"><input type="checkbox" name="class_times" value="{{.}}"><span>{{.}}</span></label>{{/time_options}}</div>
+      </fieldset>
+      <label>{{message_label}}<textarea name="message" rows="4"></textarea></label>
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="form-msg" role="alert"></p>
+      <button class="btn" type="submit">{{button_label}}</button>
+    </form>
+    <div class="form-done" hidden><h2>{{success_message}}</h2></div>
+  </div>
+</section>
+{{/apply}}
+</main>
+{{> footer}}
+</body>
+</html>

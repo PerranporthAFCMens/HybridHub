@@ -1,0 +1,21 @@
+{
+  "title": "Apply to join",
+  "intro_paragraphs": [
+    "A performance-focused gym, built around community, training and progress.",
+    "Strength training, conditioning, HYROX, ATHX, KELTX and open gym training under one roof, with premium equipment, structured programming and a community that wants to get better."
+  ],
+  "form_heading": "Ready to join?",
+  "form_intro": "Complete the application below and we'll be in touch within 24 hours.",
+  "membership_label": "Membership",
+  "membership_options": [
+    "Full membership, £92.50 a month",
+    "Hybrid 2X (2 classes a week), £72.50 a month"
+  ],
+  "times_label": "Class times you'd usually come to",
+  "time_options": ["6:00am", "7:00am", "9:15am", "5:15pm", "6:15pm"],
+  "message_label": "Anything else we should know? (optional)",
+  "button_label": "Send application",
+  "success_message": "Thanks, your application is in. We'll be in touch within 24 hours.",
+  "email_subject": "New membership application from the website",
+  "form_key": ""
+}

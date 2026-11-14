@@ -15,7 +15,7 @@ const path = require('path');
 
 const ROOT = __dirname;
 const OUT = path.join(ROOT, '_site');
-const PAGES = ['index', 'train', 'memberships', 'visit'];
+const PAGES = ['index', 'train', 'memberships', 'visit', 'apply'];
 
 function readJSON(name) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, 'content', name + '.json'), 'utf8'));
@@ -122,6 +122,7 @@ function build() {
     train: readJSON('train'),
     memberships: readJSON('memberships'),
     visit: readJSON('visit'),
+    apply: readJSON('apply'),
   });
 
   fs.rmSync(OUT, { recursive: true, force: true });

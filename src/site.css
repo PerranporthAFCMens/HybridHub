@@ -124,3 +124,30 @@ footer nav{display:flex;flex-wrap:wrap;gap:22px}
 footer a{text-decoration:none}
 footer a:hover{color:#fff}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* Apply form */
+.apply{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(32px,6vw,88px);align-items:start}
+.apply h2{margin-bottom:18px}
+.form{display:flex;flex-direction:column;gap:22px}
+.form label{display:flex;flex-direction:column;gap:8px;font:600 14px/1.3 var(--body)}
+.form .opt{font-weight:400;color:var(--muted)}
+.form input:not([type=radio]):not([type=checkbox]),.form textarea{font:400 16px/1.4 var(--body);padding:13px 14px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);width:100%}
+.form input:focus,.form textarea:focus{outline:2px solid var(--ink);outline-offset:0}
+.form fieldset{border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.form legend{font:600 14px/1.3 var(--body);margin-bottom:10px;padding:0}
+.form .choice{flex-direction:row;align-items:center;gap:12px;font-weight:500;background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px;cursor:pointer}
+.form .choice:has(input:checked){border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.form .choice input{accent-color:var(--ink);width:18px;height:18px;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.form .chip{position:relative;cursor:pointer}
+.chip input{position:absolute;opacity:0}
+.chip span{display:inline-block;font:500 14px/1 var(--body);padding:11px 16px;border:1px solid var(--line);border-radius:999px;background:#fff}
+.chip input:checked+span{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip input:focus-visible+span{outline:2px solid var(--ink);outline-offset:2px}
+.form .btn{align-self:flex-start;cursor:pointer}
+.form .btn:disabled{opacity:.6}
+.form-msg{margin:0;color:#b42318;font-size:15px}
+.form-msg:empty{display:none}
+.hp{display:none}
+.form-done h2{font-size:clamp(24px,2.6vw,32px)}
+@media (max-width:760px){.apply{grid-template-columns:1fr}}

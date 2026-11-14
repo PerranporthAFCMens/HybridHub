@@ -21,6 +21,13 @@ The Hybrid Hub Newquay website: four pages (Home, Train, Memberships, Visit).
 2. Install the Pages CMS GitHub app when it asks, and give it access to **HybridHub** only. Then open the repository.
 3. Invite each owner by email under **Collaborators**. They don't need a GitHub account: they sign in with the emailed link and see the five sections (Home, Train, Memberships, Visit, Site settings).
 
+## Apply form (one-time setup)
+
+Applications from the Apply page are emailed to the owners by [Web3Forms](https://web3forms.com) (free, up to 250 a month, no account needed).
+1. On web3forms.com, enter the email address that should receive applications and copy the **Access Key** it emails you.
+2. Pages CMS → **Apply page** → paste it into **Form key** → Save.
+The key is meant to be public, so it's fine in this repository. Until it's added, the form tells visitors applications can't be sent yet.
+
 ## Launching
 
 Before launch the site shows a "Preview" banner and asks search engines not to list it. When it's ready: Pages CMS → **Site settings** → tick **Site is launched** → Save.
