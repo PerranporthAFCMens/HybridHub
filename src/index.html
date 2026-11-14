@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+{{> head}}
+<link rel="preload" as="image" href="{{home.hero.image}}">
+<title>{{site.title}}</title>
+</head>
+<body>
+{{> header}}
+<main>
+
+<section class="hero" style="padding:0" aria-labelledby="t">
+  {{#home.hero}}<img src="{{image}}" alt="{{image_alt}}" fetchpriority="high">
+  <div class="wrap">
+    <h1 id="t">{{title}}</h1>
+    <p>{{text}}</p>
+    <div class="actions"><a class="btn light" href="{{button_link}}">{{button_label}}</a><a class="link" href="{{link_url}}">{{link_label}}</a></div>
+  </div>{{/home.hero}}
+</section>
+
+<section aria-label="Ways to train">
+  <div class="wrap three">
+    {{#home.cards}}<a href="{{link}}"><div class="photo"><img loading="lazy" src="{{image}}" alt="{{image_alt}}"></div><h3>{{title}}</h3><p>{{text}}</p></a>
+    {{/home.cards}}
+  </div>
+</section>
+
+<section style="padding-top:0" aria-labelledby="p">
+  <div class="wrap">
+    <div class="actions" style="justify-content:space-between;margin-bottom:28px"><h2 id="p">{{home.memberships_title}}</h2><a class="link" href="memberships.html">{{home.memberships_link_label}}</a></div>
+    <div class="prices">
+      {{#home_plans}}<div class="price-row"><h3>{{name}}</h3><p>{{summary}}</p><div class="amount">{{price}}{{#per}}<small> {{per}}</small>{{/per}}</div><a class="link" href="{{button_link}}">{{button_label}}</a></div>
+      {{/home_plans}}
+    </div>
+  </div>
+</section>
+</main>
+{{> footer}}
+</body>
+</html>

@@ -1,0 +1,8 @@
+{{^site.launched}}<div class="notice">{{site.preview_banner}}</div>
+{{/site.launched}}<header class="header">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Hybrid Hub home">HYBRID<br>HUB</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="train.html"{{#is_train}} aria-current="page"{{/is_train}}>Train</a><a href="memberships.html"{{#is_memberships}} aria-current="page"{{/is_memberships}}>Memberships</a><a href="visit.html"{{#is_visit}} aria-current="page"{{/is_visit}}>Visit</a><a class="join" href="memberships.html">{{site.join_label}}</a></nav>
+  </div>
+</header>

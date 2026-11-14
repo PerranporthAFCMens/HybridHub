@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+{{> head}}
+<title>{{memberships.title}} · {{site.title}}</title>
+</head>
+<body>
+{{> header}}
+<main>
+{{#memberships}}
+<section class="intro" aria-labelledby="t">
+  <div class="wrap">
+    <h1 id="t">{{title}}</h1>
+    <p>{{intro}}</p>
+  </div>
+</section>
+<section aria-label="Plans">
+  <div class="wrap">
+    <div class="plans">
+      {{#plans}}<article class="plan{{#featured}} featured{{/featured}}">
+        {{#tag}}<span class="tag">{{tag}}</span>{{/tag}}
+        <h3>{{name}}</h3>
+        <div class="amount">{{price}}{{#per}}<small> {{per}}</small>{{/per}}</div>
+        <p class="sub">{{summary}}</p>
+        <ul>{{#features}}<li>{{.}}</li>{{/features}}</ul>
+        <a class="btn{{#featured}} light{{/featured}}" href="{{button_link}}">{{button_label}}</a>
+      </article>
+      {{/plans}}
+    </div>
+    {{#footnote_link}}<p class="muted" style="margin-top:32px">{{footnote}} <a class="link" href="{{footnote_link}}">{{footnote_link_label}}</a></p>{{/footnote_link}}
+  </div>
+</section>
+{{/memberships}}
+</main>
+{{> footer}}
+</body>
+</html>

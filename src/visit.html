@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+{{> head}}
+<title>{{visit.title}} · {{site.title}}</title>
+</head>
+<body>
+{{> header}}
+<main>
+{{#visit}}
+<section aria-labelledby="t">
+  <div class="wrap row">
+    <div>
+      <h1 id="t">{{title}}</h1>
+      <ul class="details">
+        {{#details}}<li><b>{{label}}</b><span>{{value}}</span></li>
+        {{/details}}
+      </ul>
+      <p style="margin-top:28px"><a class="link" href="{{directions_url}}" target="_blank" rel="noopener">{{directions_label}}</a></p>
+    </div>
+    <div class="map"><iframe title="Map of Hybrid Hub" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="{{map_embed_url}}"></iframe></div>
+  </div>
+</section>
+<section style="padding-top:0" aria-labelledby="o">
+  <div class="wrap row flip">
+    <div class="owners">
+      {{#owner_photos}}<div class="photo"><img loading="lazy" src="{{image}}" alt="{{image_alt}}"></div>
+      {{/owner_photos}}
+    </div>
+    <div><h2 id="o">{{owners_title}}</h2>{{#owners_paragraphs}}<p>{{.}}</p>{{/owners_paragraphs}}</div>
+  </div>
+</section>
+{{/visit}}
+</main>
+{{> footer}}
+</body>
+</html>
