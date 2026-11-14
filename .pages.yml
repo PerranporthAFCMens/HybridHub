@@ -64,6 +64,17 @@ content:
       - { name: title, label: Page title, type: string }
       - { name: intro, label: Intro, type: text }
       - { name: timetable_title, label: Timetable heading, type: string }
+      - name: timetable_style
+        label: Timetable style
+        type: select
+        description: "Our design shows WodBoard's classes in the site's own style (updated every hour). WodBoard's design shows their embedded timetable."
+        options:
+          values:
+            - { value: own, label: Our design }
+            - { value: embed, label: WodBoard's design }
+      - { name: timetable_book_label, label: Book button text, type: string }
+      - { name: timetable_book_url, label: Book button link, type: string }
+      - { name: timetable_data_url, label: "WodBoard class data link (our design only, don't change)", type: string }
       - { name: timetable_link_label, label: Timetable link text, type: string }
       - { name: timetable_url, label: Full timetable link (WodBoard), type: string }
       - { name: timetable_embed_url, label: Timetable shown on the page (WodBoard embed link), type: string }

@@ -29,6 +29,14 @@ The Apply and START forms are emailed to the owners by [Web3Forms](https://web3f
 The key is meant to be public, so it's fine in this repository. Until it's added, the forms tell visitors they can't send yet.
 The questions on each form can be changed in Pages CMS (Apply page / START page → Questions).
 
+## Timetable
+
+The Train page can show the class timetable in two ways (Pages CMS → Train page → Timetable style):
+- **Our design**: the site reads WodBoard's class list each time it publishes and shows it in the site's own style. The publish workflow runs every hour, so changes in WodBoard appear within the hour. If WodBoard can't be reached, the page shows WodBoard's embed instead.
+- **WodBoard's design**: WodBoard's own embedded timetable, always live.
+
+GitHub pauses hourly workflows in a repository with no activity for 60 days. Any save in Pages CMS counts as activity. If it does pause, Actions → Publish site → Enable workflow.
+
 ## Launching
 
 Before launch the site shows a "Preview" banner and asks search engines not to list it. When it's ready: Pages CMS → **Site settings** → tick **Site is launched** → Save.

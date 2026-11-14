@@ -44,3 +44,17 @@
       .then(function(){btn.disabled=false;btn.textContent=label});
   });
 })();
+/* Timetable day tabs. Without JavaScript every day is listed in turn. */
+(function(){
+  var tt=document.querySelector('[data-timetable]');if(!tt)return;
+  var tabs=[].slice.call(tt.querySelectorAll('.tt-day')),lists=[].slice.call(tt.querySelectorAll('.tt-list'));
+  tt.classList.add('js-tt');
+  function show(key){
+    tabs.forEach(function(t){t.setAttribute('aria-selected',t.getAttribute('data-day')===key)});
+    lists.forEach(function(l){l.classList.toggle('on',l.getAttribute('data-day')===key)});
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.getAttribute('data-day'))})});
+  // Start on the first day that still has classes (late evening, today may be finished).
+  var first=lists.filter(function(l){return l.querySelector('.tt-row')})[0]||lists[0];
+  if(first)show(first.getAttribute('data-day'));
+})();
