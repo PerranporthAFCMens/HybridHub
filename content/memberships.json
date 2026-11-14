@@ -1,0 +1,33 @@
+{
+  "title": "Memberships",
+  "intro": "Apply for a class membership and we'll be in touch within 24 hours. Gym only and HYROX memberships sign up online.",
+  "plans": [
+    {
+      "name": "Full membership", "tag": "Most popular", "featured": true, "show_on_home": true,
+      "price": "£92.50", "per": "/month", "summary": "Unlimited coached classes",
+      "features": ["Every class on the timetable", "Open gym access", "HYROX, ATHX and KELTX training"],
+      "button_label": "Apply to join", "button_link": "https://www.hybridhubnqy.co.uk/applytojointhehub"
+    },
+    {
+      "name": "Hybrid 2X", "tag": "Flexible", "featured": false, "show_on_home": true,
+      "price": "£72.50", "per": "/month", "summary": "2 classes per week",
+      "features": ["2 coached classes every week", "Open gym access"],
+      "button_label": "Apply to join", "button_link": "https://www.hybridhubnqy.co.uk/applytojointhehub"
+    },
+    {
+      "name": "START", "tag": "Beginners", "featured": false, "show_on_home": false,
+      "price": "Small group", "per": "", "summary": "Groups of 4 to 6 people",
+      "features": ["2 coached sessions per week", "Full gym access included", "Mon, Wed or Fri, 10:30 or 12:00"],
+      "button_label": "Register interest", "button_link": "https://www.hybridhubnqy.co.uk/registerforstart"
+    },
+    {
+      "name": "Gym only & HYROX", "tag": "Self-led", "featured": false, "show_on_home": false,
+      "price": "Open gym", "per": "", "summary": "Train on your own schedule",
+      "features": ["Premium open gym", "HYROX membership option", "Sign up and pay online"],
+      "button_label": "Join online", "button_link": "https://www.wodboard.com/locations/855/signup/68791784bc"
+    }
+  ],
+  "footnote": "Just visiting?",
+  "footnote_link_label": "Book a drop-in class",
+  "footnote_link": "train.html#timetable"
+}

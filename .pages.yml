@@ -1,0 +1,133 @@
+# Pages CMS settings: what the owners see when they log in at https://app.pagescms.org
+# Each entry below is one page of the website. Saving in Pages CMS commits the change to this repository,
+# and the publish workflow rebuilds the site (about a minute).
+
+media:
+  input: images
+  output: /images
+  categories: [image]
+  rename: safe
+
+content:
+  - name: home
+    label: Home page
+    type: file
+    path: content/home.json
+    format: json
+    fields:
+      - name: hero
+        label: Top of the page
+        type: object
+        fields:
+          - { name: image, label: Big photo, type: image }
+          - { name: image_alt, label: Photo description (for screen readers), type: string }
+          - { name: title, label: Headline, type: text, description: "Press Enter for a new line." }
+          - { name: text, label: Text under the headline, type: text }
+          - { name: button_label, label: Button text, type: string }
+          - { name: button_link, label: Button link, type: string }
+          - { name: link_label, label: Second link text, type: string }
+          - { name: link_url, label: Second link, type: string }
+      - name: cards
+        label: Three photo cards
+        type: object
+        list: { min: 1, max: 3, collapsible: { collapsed: true, summary: "{title}" } }
+        fields:
+          - { name: image, label: Photo, type: image }
+          - { name: image_alt, label: Photo description, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Text, type: text }
+          - { name: link, label: Link, type: string }
+      - { name: memberships_title, label: Memberships heading, type: string, description: "The prices shown here come from the Memberships page (plans ticked 'Show on home page')." }
+      - { name: memberships_link_label, label: Memberships link text, type: string }
+
+  - name: train
+    label: Train page
+    type: file
+    path: content/train.json
+    format: json
+    fields:
+      - { name: title, label: Page title, type: string }
+      - { name: intro, label: Intro, type: text }
+      - { name: timetable_title, label: Timetable heading, type: string }
+      - { name: timetable_link_label, label: Timetable link text, type: string }
+      - { name: timetable_url, label: Full timetable link (WodBoard), type: string }
+      - { name: timetable_embed_url, label: Timetable shown on the page (WodBoard embed link), type: string }
+      - name: sections
+        label: Sections (photo and text)
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{title}" } }
+        fields:
+          - { name: title, label: Heading, type: string }
+          - { name: image, label: Photo, type: image }
+          - { name: image_alt, label: Photo description, type: string }
+          - { name: paragraphs, label: Paragraphs, type: text, list: true }
+          - { name: link_label, label: Link text, type: string }
+          - { name: link_url, label: Link, type: string }
+          - { name: anchor, label: "Short name for links (e.g. classes, start, recovery)", type: string }
+
+  - name: memberships
+    label: Memberships page
+    type: file
+    path: content/memberships.json
+    format: json
+    fields:
+      - { name: title, label: Page title, type: string }
+      - { name: intro, label: Intro, type: text }
+      - name: plans
+        label: Plans
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{name} ({price})" } }
+        fields:
+          - { name: name, label: Plan name, type: string }
+          - { name: tag, label: Small label (e.g. Most popular), type: string }
+          - { name: price, label: "Price (e.g. £92.50)", type: string }
+          - { name: per, label: "After the price (e.g. /month)", type: string }
+          - { name: summary, label: One-line summary, type: string }
+          - { name: features, label: Bullet points, type: string, list: true }
+          - { name: button_label, label: Button text, type: string }
+          - { name: button_link, label: Button link, type: string }
+          - { name: featured, label: Highlight this plan (black card), type: boolean }
+          - { name: show_on_home, label: Show on home page, type: boolean }
+      - { name: footnote, label: Line under the plans, type: string }
+      - { name: footnote_link_label, label: Link text under the plans, type: string }
+      - { name: footnote_link, label: Link under the plans, type: string }
+
+  - name: visit
+    label: Visit page
+    type: file
+    path: content/visit.json
+    format: json
+    fields:
+      - { name: title, label: Page title, type: string }
+      - name: details
+        label: Details (address, hours, contact)
+        type: object
+        list: { collapsible: { collapsed: false, summary: "{label}" } }
+        fields:
+          - { name: label, label: Label, type: string }
+          - { name: value, label: Value, type: text }
+      - { name: directions_label, label: Directions link text, type: string }
+      - { name: directions_url, label: Directions link, type: string }
+      - { name: map_embed_url, label: Map embed link, type: string }
+      - { name: owners_title, label: Owners heading, type: string }
+      - { name: owners_paragraphs, label: Owners text, type: text, list: true }
+      - name: owner_photos
+        label: Owner photos
+        type: object
+        list: { max: 2 }
+        fields:
+          - { name: image, label: Photo, type: image }
+          - { name: image_alt, label: Photo description, type: string }
+
+  - name: site
+    label: Site settings
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - { name: launched, label: "Site is launched (shows to search engines, hides the preview banner)", type: boolean }
+      - { name: title, label: Site name (browser tab), type: string }
+      - { name: description, label: Description for Google, type: text }
+      - { name: footer_line, label: Footer text, type: string }
+      - { name: join_label, label: Join button text, type: string }
+      - { name: preview_banner, label: Preview banner text (only before launch), type: string }

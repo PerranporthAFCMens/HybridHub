@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+{{> head}}
+<title>{{train.title}} · {{site.title}}</title>
+</head>
+<body>
+{{> header}}
+<main>
+{{#train}}
+<section class="intro" aria-labelledby="t">
+  <div class="wrap">
+    <h1 id="t">{{title}}</h1>
+    <p>{{intro}}</p>
+  </div>
+</section>
+
+<section id="timetable" aria-labelledby="tt">
+  <div class="wrap">
+    <div class="actions" style="justify-content:space-between"><h2 id="tt">{{timetable_title}}</h2><a class="link" href="{{timetable_url}}" target="_blank" rel="noopener">{{timetable_link_label}}</a></div>
+    <div class="tt"><iframe title="Hybrid Hub class timetable" loading="lazy" src="{{timetable_embed_url}}"></iframe></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    {{#sections}}<div class="row{{^odd}} flip{{/odd}}" id="{{anchor}}">
+      <div class="photo"><img loading="lazy" src="{{image}}" alt="{{image_alt}}"></div>
+      <div><h2>{{title}}</h2>{{#paragraphs}}<p>{{.}}</p>{{/paragraphs}}{{#link_url}}<a class="link" href="{{link_url}}">{{link_label}}</a>{{/link_url}}</div>
+    </div>
+    {{/sections}}
+  </div>
+</section>
+{{/train}}
+</main>
+{{> footer}}
+</body>
+</html>

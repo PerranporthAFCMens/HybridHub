@@ -1,0 +1,19 @@
+{
+  "hero": {
+    "image": "/images/hero-team.jpg",
+    "image_alt": "Hybrid Hub members and coaches together in the gym",
+    "title": "Level up at\nthe Hybrid Hub",
+    "text": "A premium open gym, a hybrid class zone guided by expert coaches, and a community driven to push limits.",
+    "button_label": "Join the Hub",
+    "button_link": "memberships.html",
+    "link_label": "Book a drop-in class",
+    "link_url": "train.html#timetable"
+  },
+  "cards": [
+    { "image": "/images/class-zone.jpg", "image_alt": "The Hybrid Hub class zone", "title": "Classes", "text": "Coached hybrid classes, from 6am to evening.", "link": "train.html#classes" },
+    { "image": "/images/open-gym.jpg", "image_alt": "Strength equipment in the open gym", "title": "Open gym", "text": "Top-tier equipment, on your own schedule.", "link": "memberships.html" },
+    { "image": "/images/platform.jpg", "image_alt": "A Hybrid Hub branded lifting platform", "title": "New? Start here", "text": "Small group training. More support. More confidence.", "link": "train.html#start" }
+  ],
+  "memberships_title": "Memberships",
+  "memberships_link_label": "See all"
+}
