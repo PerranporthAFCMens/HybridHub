@@ -2,6 +2,10 @@
   "title": "Train",
   "intro": "Strength training, conditioning, HYROX, ATHX, KELTX and open gym training under one roof.",
   "timetable_title": "A class for everyone",
+  "timetable_style": "own",
+  "timetable_data_url": "https://www.wodboard.com/locations/855/timetable/e0ef59abf3/data.json",
+  "timetable_book_label": "Book",
+  "timetable_book_url": "https://www.wodboard.com/locations/855/timetable/e0ef59abf3",
   "timetable_embed_url": "https://www.wodboard.com/locations/855/timetable/e0ef59abf3?adi=1",
   "sections": [
     {

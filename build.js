@@ -130,7 +130,53 @@ function prepareFields(fields, file) {
   });
 }
 
-function build() {
+// Timetable in the site's own design: read the class list behind WodBoard's embed when the site is built.
+// The publish workflow rebuilds every hour, so it stays current. If WodBoard can't be reached, the page
+// falls back to WodBoard's own embedded timetable.
+const TZ = 'Europe/London';
+function londonParts(date) {
+  const f = new Intl.DateTimeFormat('en-GB', { timeZone: TZ, weekday: 'short', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
+  const o = {};
+  for (const p of f.formatToParts(date)) o[p.type] = p.value;
+  return o;
+}
+async function loadTimetable(train) {
+  if (train.timetable_style !== 'own' || !train.timetable_data_url) return null;
+  const now = new Date();
+  const days = [];
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(now.getTime() + i * 86400000);
+    const p = londonParts(d);
+    const key = new Intl.DateTimeFormat('en-CA', { timeZone: TZ }).format(d); // YYYY-MM-DD
+    days.push({ key, weekday: i === 0 ? 'Today' : p.weekday, daynum: p.day, full: `${i === 0 ? 'Today, ' : ''}${p.weekday} ${p.day} ${p.month}`, classes: [] });
+  }
+  // WodBoard returns at most 7 days at a time.
+  const end = new Date(new Date(days[0].key + 'T00:00:00Z').getTime() + 7 * 86400000).toISOString().slice(0, 10);
+  const url = `${train.timetable_data_url}${train.timetable_data_url.includes('?') ? '&' : '?'}start=${days[0].key}&end=${end}`;
+  try {
+    const res = await fetch(url, { headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(15000) });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const events = await res.json();
+    if (!Array.isArray(events)) throw new Error('unexpected data');
+    for (const e of events) {
+      const start = new Date(e.start), finish = new Date(e.end);
+      if (isNaN(start) || finish < now) continue;
+      const key = new Intl.DateTimeFormat('en-CA', { timeZone: TZ }).format(start);
+      const day = days.find((d) => d.key === key);
+      if (!day) continue;
+      const s = londonParts(start), f = londonParts(finish);
+      day.classes.push({ sort: start.getTime(), start: `${s.hour}:${s.minute}`, end: `${f.hour}:${f.minute}`, title: String(e.title || 'Class').trim() });
+    }
+    for (const d of days) d.classes.sort((a, b) => a.sort - b.sort);
+    console.log(`Timetable: ${events.length} classes read from WodBoard`);
+    return days;
+  } catch (err) {
+    console.warn(`Warning: couldn't read the WodBoard timetable (${err.message}); showing WodBoard's embed instead`);
+    return null;
+  }
+}
+
+async function build() {
   const data = relativeAssets({
     site: readJSON('site'),
     home: readJSON('home'),
@@ -141,6 +187,9 @@ function build() {
     start: readJSON('start'),
     recovery: readJSON('recovery'),
   });
+  data.train.timetable_days = await loadTimetable(data.train);
+  data.train.use_own_timetable = !!data.train.timetable_days;
+  data.train.use_embed = !data.train.timetable_days;
   for (const page of ['apply', 'start']) data[page].fields = prepareFields(data[page].fields, page + '.json');
 
   fs.rmSync(OUT, { recursive: true, force: true });
@@ -160,6 +209,6 @@ function build() {
 }
 
 if (require.main === module) {
-  try { build(); } catch (e) { console.error('Build failed: ' + e.message); process.exit(1); }
+  build().catch((e) => { console.error('Build failed: ' + e.message); process.exit(1); });
 }
 module.exports = { render, escapeHTML };

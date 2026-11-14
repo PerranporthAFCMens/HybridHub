@@ -1,9 +1,11 @@
 # Builds the site and publishes it to GitHub Pages on every change to main
-# (including every save from Pages CMS). Takes about a minute.
+# (including every save from Pages CMS), and every hour to refresh the timetable. Takes about a minute.
 name: Publish site
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '7 * * * *'   # every hour, so the timetable on the Train page stays current
   workflow_dispatch:
 permissions:
   contents: read
