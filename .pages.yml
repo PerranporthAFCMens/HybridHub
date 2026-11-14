@@ -246,6 +246,7 @@ content:
       - { name: title, label: Site name (browser tab), type: string }
       - { name: description, label: Description for Google, type: text }
       - { name: footer_line, label: Footer text, type: string }
+      - { name: instagram, label: "Instagram handle (without the @)", type: string }
       - { name: join_label, label: Join button text, type: string }
       - { name: form_key, label: Form key (from web3forms.com), type: string, description: "Apply and START forms are emailed to the address this key was created with." }
       - { name: preview_banner, label: Preview banner text (only before launch), type: string }
