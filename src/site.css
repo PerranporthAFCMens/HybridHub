@@ -20,6 +20,7 @@ p{margin:0 0 1em}
 
 /* Preview banner (shown until launch) */
 .notice{background:var(--ink);color:#bdbab3;font:500 12px/1.4 var(--body);text-align:center;padding:7px 16px;border-bottom:1px solid #222}
+.notice a{color:#fff;text-decoration:underline;text-underline-offset:2px;margin-left:6px;white-space:nowrap}
 
 /* Header */
 .header{position:sticky;top:0;z-index:50;background:rgba(245,244,240,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
