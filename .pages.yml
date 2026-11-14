@@ -37,8 +37,6 @@ content:
           - { name: title, label: Title, type: string }
           - { name: text, label: Text, type: text }
           - { name: link, label: Link, type: string }
-      - { name: memberships_title, label: Memberships heading, type: string, description: "The prices shown here come from the Memberships page (plans ticked 'Show on home page')." }
-      - { name: memberships_link_label, label: Memberships link text, type: string }
 
   - name: train
     label: Train page
@@ -87,7 +85,6 @@ content:
           - { name: button_label, label: Button text, type: string }
           - { name: button_link, label: Button link, type: string }
           - { name: featured, label: Highlight this plan (black card), type: boolean }
-          - { name: show_on_home, label: Show on home page, type: boolean }
       - { name: footnote, label: Line under the plans, type: string }
       - { name: footnote_link_label, label: Link text under the plans, type: string }
       - { name: footnote_link, label: Link under the plans, type: string }
