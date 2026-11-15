@@ -1,16 +1,16 @@
 {
   "title": "Apply to join",
   "intro": "A performance-focused gym, built around community, training and progress. Strength training, conditioning, HYROX, ATHX, KELTX and open gym training under one roof.",
-  "image": "/images/hero-team.jpg",
-  "image_alt": "Hybrid Hub members and coaches together in the gym",
+  "image": "/images/open-gym.jpg",
+  "image_alt": "Strength equipment in the open gym",
   "points_title": "What happens next",
   "points": [
     "Send your application below",
-    "We'll be in touch within 24 hours",
+    "We'll email you to arrange your first visit",
     "Come in, meet the coaches and start training"
   ],
   "form_heading": "Ready to join?",
-  "form_intro": "Complete the application and we'll be in touch within 24 hours.",
+  "form_intro": "It takes about two minutes.",
   "fields": [
     {
       "label": "Full name",
@@ -40,15 +40,13 @@
       ]
     },
     {
-      "label": "Class times you'd usually come to",
+      "label": "When would you usually train?",
       "type": "checkboxes",
       "required": false,
       "options": [
-        "6:00am",
-        "7:00am",
-        "9:15am",
-        "5:15pm",
-        "6:15pm"
+        "Early morning",
+        "Mid-morning",
+        "Evening"
       ]
     },
     {

@@ -1,5 +1,5 @@
 {
-  "kicker": "Cornwall's newest premium training facility",
+  "kicker": "Open 24 hours · Prow Park, Newquay",
   "hero": {
     "image": "/images/hero-team.jpg",
     "image_alt": "Hybrid Hub members and coaches together in the gym",
@@ -15,30 +15,37 @@
       "image": "/images/class-zone.jpg",
       "image_alt": "The Hybrid Hub class zone",
       "title": "Classes",
-      "text": "Coached hybrid classes, from 6am to evening.",
-      "link": "train.html#classes"
+      "text": "Coached HYROX, ATHX and hybrid classes, morning to evening.",
+      "link": "train.html"
     },
     {
       "image": "/images/open-gym.jpg",
       "image_alt": "Strength equipment in the open gym",
-      "title": "Open gym",
-      "text": "Top-tier equipment, on your own schedule.",
+      "title": "Open gym, 24/7",
+      "text": "Top-tier equipment whenever suits you, day or night.",
       "link": "memberships.html"
+    },
+    {
+      "image": "/images/recovery.jpg",
+      "image_alt": "Equipment in the Hybrid Hub recovery zone",
+      "title": "Recovery",
+      "text": "Hyperice compression, contrast therapy and vibration rolling.",
+      "link": "recovery.html"
     },
     {
       "image": "/images/platform.jpg",
       "image_alt": "A Hybrid Hub branded lifting platform",
       "title": "New? Start here",
-      "text": "Small group training. More support. More confidence.",
+      "text": "Small group training with more coaching and support.",
       "link": "start.html"
     }
   ],
-  "affiliations": "Proudly affiliated with HYROX, KELTX and ATHX.",
+  "affiliations": "Proudly affiliated with",
   "announcement": {
     "show": true,
-    "date": "Saturday 28 November, 7pm",
-    "title": "Hybrid Hub 1st Birthday & Christmas Ball",
-    "text": "Join us for an unforgettable evening as we celebrate one year of Hybrid Hub at the Nici Hotel, Newquay. Book your spot, then send us your food order for the night.",
+    "date": "Saturday 28 November, 7pm · The Nici Hotel",
+    "title": "1st Birthday & Christmas Ball",
+    "text": "Celebrate one year of Hybrid Hub with us. Book your spot, then send us your food order for the night.",
     "buttons": [
       {
         "label": "Book your spot",
@@ -49,5 +56,10 @@
         "url": "https://docs.google.com/forms/d/e/1FAIpQLSc-SugOZNziZw27vpu0dqmNdfEs6nJktBC3cp1U-QInH0q82A/viewform"
       }
     ]
-  }
+  },
+  "affiliates": [
+    "HYROX",
+    "KELTX",
+    "ATHX"
+  ]
 }

@@ -2,10 +2,11 @@
   <div class="wrap">
     <div>
       <a class="logo" href="index.html">HYBRID<br>HUB</a>
-      {{site.footer_line}}
+      <p class="foot-line">{{site.footer_line}}</p>
+      {{#site.instagram}}<p class="foot-line"><a href="https://www.instagram.com/{{site.instagram}}/" target="_blank" rel="noopener">Instagram @{{site.instagram}}</a></p>{{/site.instagram}}
     </div>
     <nav aria-label="Footer">
-      <a href="train.html">Train</a><a href="memberships.html">Memberships</a><a href="visit.html">Visit</a><a href="start.html">START</a><a href="recovery.html">Recovery</a><a href="apply.html">Apply to join</a>{{#site.instagram}}<a href="https://www.instagram.com/{{site.instagram}}/" target="_blank" rel="noopener">Instagram</a>{{/site.instagram}}
+      <a href="train.html">Train</a><a href="memberships.html">Memberships</a><a href="recovery.html">Recovery</a><a href="visit.html">Visit</a><a href="start.html">START</a><a href="apply.html">Apply to join</a>
     </nav>
   </div>
 </footer>

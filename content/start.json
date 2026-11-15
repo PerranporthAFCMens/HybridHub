@@ -30,7 +30,7 @@
     {
       "label": "Date of birth",
       "type": "date",
-      "required": true,
+      "required": false,
       "options": []
     },
     {
