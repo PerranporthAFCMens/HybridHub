@@ -1,6 +1,6 @@
 {
   "title": "Memberships",
-  "intro": "Apply for a class membership and we'll be in touch within 24 hours. Gym only and HYROX memberships sign up online.",
+  "intro": "Choose a plan. Class memberships start with a short application. Gym only and HYROX sign up online.",
   "plans": [
     {
       "name": "Full membership",
@@ -11,7 +11,7 @@
       "summary": "Unlimited coached classes",
       "features": [
         "Every class on the timetable",
-        "Open gym access",
+        "24/7 open gym access",
         "HYROX, ATHX and KELTX training"
       ],
       "button_label": "Apply to join",
@@ -26,7 +26,7 @@
       "summary": "2 classes per week",
       "features": [
         "2 coached classes every week",
-        "Open gym access"
+        "24/7 open gym access"
       ],
       "button_label": "Apply to join",
       "button_link": "apply.html?plan=2X"
@@ -40,7 +40,7 @@
       "summary": "Groups of 4 to 6 people",
       "features": [
         "2 coached sessions per week",
-        "Full gym access included",
+        "24/7 gym access included",
         "Mon, Wed or Fri, 10:30 or 12:00"
       ],
       "button_label": "Register interest",
@@ -54,7 +54,7 @@
       "per": "",
       "summary": "Train on your own schedule",
       "features": [
-        "Premium open gym",
+        "Premium open gym, open 24/7",
         "HYROX membership option",
         "Sign up and pay online"
       ],

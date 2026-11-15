@@ -1,18 +1,31 @@
 {
   "title": "Visit",
   "details": [
-    { "label": "Address", "value": "Prow Park, Newquay, Cornwall" },
-    { "label": "Classes", "value": "06:00, 07:00, 09:15, 17:15, 18:15" },
-    { "label": "Hours", "value": "To confirm" },
-    { "label": "Contact", "value": "To confirm" }
+    {
+      "label": "Address",
+      "value": "Prow Park, Newquay, Cornwall"
+    },
+    {
+      "label": "Hours",
+      "value": "Open 24 hours"
+    }
   ],
   "directions_label": "Get directions",
   "directions_url": "https://www.google.com/maps/search/?api=1&query=Prow+Park+Newquay",
   "map_embed_url": "https://www.google.com/maps?q=Prow+Park,+Newquay&output=embed",
   "owners_title": "Meet your co-owners",
-  "owners_paragraphs": ["Luke Watson-Read and Josh Mares.", "A performance-focused gym, built around community, training and progress."],
+  "owners_paragraphs": [
+    "Luke Watson-Read and Josh Mares.",
+    "A performance-focused gym, built around community, training and progress."
+  ],
   "owner_photos": [
-    { "image": "/images/owner-1.jpg", "image_alt": "Hybrid Hub co-owner" },
-    { "image": "/images/owner-2.jpg", "image_alt": "Hybrid Hub co-owner" }
+    {
+      "image": "/images/owner-1.jpg",
+      "image_alt": "Hybrid Hub co-owner"
+    },
+    {
+      "image": "/images/owner-2.jpg",
+      "image_alt": "Hybrid Hub co-owner"
+    }
   ]
 }

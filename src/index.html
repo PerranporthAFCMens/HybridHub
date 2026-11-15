@@ -18,6 +18,7 @@
     <div class="actions"><a class="btn light" href="{{button_link}}">{{button_label}}</a><a class="link" href="{{link_url}}">{{link_label}}</a></div>
   </div>{{/home.hero}}
 </section>
+{{#home.affiliates.0}}<div class="affil-strip"><div class="wrap"><span>{{home.affiliations}}</span>{{#home.affiliates}}<b>{{.}}</b>{{/home.affiliates}}</div></div>{{/home.affiliates.0}}
 
 {{#home.announcement.show}}{{#home.announcement}}<section class="announce-wrap" aria-labelledby="a">
   <div class="wrap">
@@ -33,10 +34,7 @@
 </section>
 {{/home.announcement}}{{/home.announcement.show}}
 <section aria-label="Ways to train">
-  <div class="wrap">
-    {{#home.affiliations}}<p class="affiliations">{{home.affiliations}}</p>{{/home.affiliations}}
-  </div>
-  <div class="wrap three">
+  <div class="wrap three four">
     {{#home.cards}}<a href="{{link}}"><div class="photo"><img loading="lazy" src="{{image}}" alt="{{image_alt}}"></div><h3>{{title}}</h3><p>{{text}}</p></a>
     {{/home.cards}}
   </div>

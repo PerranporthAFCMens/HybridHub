@@ -43,11 +43,12 @@ content:
             fields:
               - { name: label, label: Button text, type: string }
               - { name: url, label: Link, type: string }
-      - { name: affiliations, label: Affiliations line, type: string }
+      - { name: affiliations, label: Affiliations label (e.g. Proudly affiliated with), type: string }
+      - { name: affiliates, label: Affiliations (one name each), type: string, list: true }
       - name: cards
-        label: Three photo cards
+        label: Photo cards
         type: object
-        list: { min: 1, max: 3, collapsible: { collapsed: true, summary: "{title}" } }
+        list: { min: 1, max: 4, collapsible: { collapsed: true, summary: "{title}" } }
         fields:
           - { name: image, label: Photo, type: image }
           - { name: image_alt, label: Photo description, type: string }
@@ -86,6 +87,17 @@ content:
       - { name: timetable_link_label, label: Timetable link text, type: string }
       - { name: timetable_url, label: Full timetable link (WodBoard), type: string }
       - { name: timetable_embed_url, label: Timetable shown on the page (WodBoard embed link), type: string }
+      - { name: class_types_title, label: Class types heading, type: string }
+      - { name: class_types_intro, label: Class types intro, type: text }
+      - name: class_types
+        label: Class types
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{name}" } }
+        fields:
+          - { name: name, label: Class name, type: string }
+          - { name: text, label: One-line description, type: text }
+      - { name: class_types_link_label, label: Link text under class types, type: string }
+      - { name: class_types_link, label: Link under class types, type: string }
       - name: sections
         label: Sections (photo and text)
         type: object
