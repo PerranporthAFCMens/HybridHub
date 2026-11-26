@@ -15,7 +15,7 @@ const path = require('path');
 
 const ROOT = __dirname;
 const OUT = path.join(ROOT, '_site');
-const PAGES = ['index', 'train', 'memberships', 'visit', 'apply', 'recovery'];
+const PAGES = ['index', 'train', 'memberships', 'visit', 'apply', 'dropin', 'recovery'];
 // Pages from the old Wix site (from its sitemap) and where they now live. The 404 page has the same list as a fallback.
 const OLD_WIX_PAGES = {
   'applytojointhehub': 'apply.html',
@@ -205,12 +205,14 @@ async function build() {
     memberships: readJSON('memberships'),
     visit: readJSON('visit'),
     apply: readJSON('apply'),
+    dropin: readJSON('dropin'),
     recovery: readJSON('recovery'),
   });
   data.train.timetable_days = await loadTimetable(data.train);
   data.train.use_own_timetable = !!data.train.timetable_days;
   data.train.use_embed = !data.train.timetable_days;
   data.apply.fields = prepareFields(data.apply.fields, 'apply.json');
+  data.dropin.fields = prepareFields(data.dropin.fields, 'dropin.json');
 
   fs.rmSync(OUT, { recursive: true, force: true });
   fs.mkdirSync(OUT, { recursive: true });
