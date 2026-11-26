@@ -1,5 +1,6 @@
 {
   "title": "Memberships",
+  "seo_description": "Compare Hybrid Hub Newquay memberships: full class membership, Hybrid 2X, START small groups and gym only, with 24/7 open gym access.",
   "intro": "Choose a plan. Class memberships start with a short application. Gym only and HYROX sign up online.",
   "plans": [
     {
@@ -63,6 +64,6 @@
     }
   ],
   "footnote": "Just visiting?",
-  "footnote_link_label": "Book a drop-in class",
-  "footnote_link": "train.html#timetable"
+  "footnote_link_label": "Book a drop-in session",
+  "footnote_link": "dropin.html"
 }

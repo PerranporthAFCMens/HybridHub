@@ -35,6 +35,8 @@ The Train page can show the class timetable in two ways (Pages CMS → Train pag
 - **Our design**: the site reads WodBoard's class list each time it publishes and shows it in the site's own style. The publish workflow runs every hour, so changes in WodBoard appear within the hour. If WodBoard can't be reached, the page shows WodBoard's embed instead.
 - **WodBoard's design**: WodBoard's own embedded timetable, always live.
 
+In our design, each class's Book link goes to that class in WodBoard (`https://www.wodboard.com/events/{id}`, set in Train page → Book link for each class). Members sign in to WodBoard and book. Clear that field to send every Book link to the general Book button link instead.
+
 GitHub pauses hourly workflows in a repository with no activity for 60 days. Any save in Pages CMS counts as activity. If it does pause, Actions → Publish site → Enable workflow.
 
 ## Instagram
@@ -44,3 +46,13 @@ The home page shows the latest 6 Instagram posts, read through a free [Behold](h
 ## Launching
 
 Before launch the site shows a "Preview" banner and asks search engines not to list it. When it's ready: Pages CMS → **Site settings** → tick **Site is launched** → Save.
+
+Moving from new.hybridhubnqy.co.uk to the main address, in this order:
+1. **Wix DNS** (the domain is registered and managed at Wix): point the bare domain's A records at GitHub Pages (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) and change `www` to a CNAME for `perranporthafcmens.github.io`. Leave the MX/TXT records alone.
+2. **GitHub** → Settings → Pages → Custom domain: `www.hybridhubnqy.co.uk` (the bare domain then redirects to it, and new.hybridhubnqy.co.uk stops serving the site).
+3. **Pages CMS** → Site settings → tick **Site is launched**. The Web address there is already `https://www.hybridhubnqy.co.uk`.
+4. When GitHub has issued the certificate (up to an hour), tick **Enforce HTTPS** in Settings → Pages.
+5. Check the site, send one real Apply form, then submit `https://www.hybridhubnqy.co.uk/sitemap.xml` in Google Search Console.
+6. Cancel the Wix **site plan** only. The domain is a separate Wix subscription and must keep renewing, or the address stops working.
+
+Old Wix page addresses (for example /applytojointhehub or /hyperice) send visitors to the matching new page. The list is `OLD_WIX_PAGES` in build.js.

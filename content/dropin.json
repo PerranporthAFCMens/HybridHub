@@ -1,0 +1,67 @@
+{
+  "title": "Book a drop‑in session",
+  "seo_description": "Visiting Newquay? Book a drop-in session at Hybrid Hub, Prow Park. Give us your details and we'll call you to book it in.",
+  "intro": "Visiting Newquay, or want to try a class before joining? Give us your details and we'll give you a call to book you in.",
+  "image": "/images/class-zone.jpg",
+  "image_alt": "The class zone at Hybrid Hub",
+  "points_title": "How it works",
+  "points": [
+    "Leave your details below",
+    "We'll give you a call",
+    "We'll book you into a session that suits you"
+  ],
+  "form_heading": "Your details",
+  "form_intro": "Give us your details and we'll call you to book it in.",
+  "fields": [
+    {
+      "label": "Full name",
+      "type": "text",
+      "required": true,
+      "options": [],
+      "show_when": []
+    },
+    {
+      "label": "Phone",
+      "type": "tel",
+      "required": true,
+      "options": [],
+      "show_when": []
+    },
+    {
+      "label": "Email address",
+      "type": "email",
+      "required": false,
+      "options": [],
+      "show_when": []
+    },
+    {
+      "label": "Best time to call",
+      "type": "checkboxes",
+      "required": false,
+      "options": [
+        "Morning",
+        "Afternoon",
+        "Evening"
+      ],
+      "show_when": []
+    },
+    {
+      "label": "Roughly when would you like to come?",
+      "type": "text",
+      "required": false,
+      "options": [],
+      "show_when": []
+    },
+    {
+      "label": "Anything else we should know?",
+      "type": "textarea",
+      "required": false,
+      "options": [],
+      "show_when": []
+    }
+  ],
+  "button_label": "Send my details",
+  "success_title": "Thanks!",
+  "success_message": "We'll give you a call soon to book you in.",
+  "email_subject": "Drop-in session request from the website"
+}
