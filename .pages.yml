@@ -156,6 +156,7 @@ content:
         fields:
           - { name: label, label: Label, type: string }
           - { name: value, label: Value, type: text }
+      - { name: what3words, label: "what3words address (the three words, without ///; leave empty to hide)", type: string }
       - { name: directions_label, label: Directions link text, type: string }
       - { name: directions_url, label: Directions link, type: string }
       - { name: map_embed_url, label: Map embed link, type: string }
