@@ -292,6 +292,9 @@ content:
       - { name: footer_line, label: Footer text, type: string }
       - { name: instagram, label: "Instagram handle (without the @)", type: string }
       - { name: instagram_feed_url, label: "Instagram feed link (from behold.so; leave empty to hide the photos)", type: string, description: "Starts with https://feeds.behold.so/. Shows the latest 6 posts on the home page." }
+      - { name: google_profile_url, label: "Google Business Profile link (leave empty to hide)", type: string, description: "In your Google Business Profile, press Share and copy the link (it starts https://maps.app.goo.gl/ or https://g.page/). Shown on the Visit page and given to Google so it knows the profile and the site are the same business." }
+      - { name: google_review_url, label: "Google review link (leave empty to hide)", type: string, description: "In your Google Business Profile, press Ask for reviews and copy the link. Adds a Leave a Google review link on the Visit page and in the footer." }
+      - { name: postcode, label: Postcode, type: string, description: "Exactly as on the Google Business Profile. Helps Google match the site to the profile." }
       - { name: join_label, label: Join button text, type: string }
       - { name: form_key, label: Form key (from web3forms.com), type: string, description: "The Apply form is emailed to the address this key was created with." }
       - { name: preview_banner, label: Preview banner text (only before launch), type: string }

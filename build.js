@@ -239,6 +239,36 @@ async function loadInstagram(site) {
   }
 }
 
+// Business details for Google (schema.org), so search and Maps can tie the site to the Google Business Profile.
+// Built from Site settings and the Visit page; added to the home and Visit pages.
+function businessSchema(data, base) {
+  const site = data.site;
+  const details = (data.visit && data.visit.details) || [];
+  const find = (re) => (details.find((d) => re.test(d.label || '')) || {}).value || '';
+  const address = String(find(/address/i)).split(/,|\n/).map((x) => x.trim()).filter(Boolean);
+  const hours = String(find(/hours/i));
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'ExerciseGym',
+    name: site.title,
+    description: site.description,
+    url: base + '/',
+    image: base + '/' + String(data.home.hero.image || '').replace(/^\//, ''),
+    address: Object.assign({ '@type': 'PostalAddress', addressCountry: 'GB' },
+      address[0] ? { streetAddress: address[0] } : {},
+      address[1] ? { addressLocality: address[1] } : {},
+      address[2] ? { addressRegion: address[2] } : {},
+      site.postcode ? { postalCode: site.postcode } : {}),
+    sameAs: [site.instagram && `https://www.instagram.com/${site.instagram}/`, site.google_profile_url].filter(Boolean),
+  };
+  if (site.google_profile_url) schema.hasMap = site.google_profile_url;
+  if (/24\s*hours/i.test(hours)) {
+    schema.openingHoursSpecification = [{ '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59' }];
+  }
+  return '<script type="application/ld+json">' + JSON.stringify(schema).replace(/</g, '\\u003c') + '</script>';
+}
+
 async function build() {
   const data = relativeAssets({
     site: readJSON('site'),
@@ -271,7 +301,8 @@ async function build() {
       page_title: page === 'index' ? data.site.title : `${data[page].title} · ${data.site.title}`,
       og_image: base + '/' + String(data.home.hero.image || '').replace(/^\//, ''),
     });
-    fs.writeFileSync(path.join(OUT, file), render(tpl, [ctx], file));
+    const schema = base && (page === 'index' || page === 'visit') ? businessSchema(data, base) : '';
+    fs.writeFileSync(path.join(OUT, file), render(tpl, [ctx], file).replace('<!--business-schema-->', schema));
   }
   // start.html: START is now part of the Apply page; this small page sends old links there.
   for (const f of ['site.css', 'site.js', 'favicon.svg', 'apple-touch-icon.png', '404.html', 'start.html']) fs.copyFileSync(path.join(ROOT, 'src', f), path.join(OUT, f));

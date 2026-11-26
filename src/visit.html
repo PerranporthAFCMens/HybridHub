@@ -15,9 +15,10 @@
       <ul class="details">
         {{#details}}<li><b>{{label}}</b><span>{{value}}</span></li>
         {{/details}}
+        {{#site.google_profile_url}}<li><b>Google</b><span><a class="link" href="{{site.google_profile_url}}" target="_blank" rel="noopener">Hybrid Hub on Google</a></span></li>{{/site.google_profile_url}}
         {{#site.instagram}}<li><b>Instagram</b><span><a class="link" href="https://www.instagram.com/{{site.instagram}}/" target="_blank" rel="noopener">@{{site.instagram}}</a></span></li>{{/site.instagram}}
       </ul>
-      <p style="margin-top:28px"><a class="link" href="{{directions_url}}" target="_blank" rel="noopener">{{directions_label}}</a></p>
+      <p class="visit-links"><a class="link" href="{{directions_url}}" target="_blank" rel="noopener">{{directions_label}}</a>{{#site.google_review_url}}<a class="link" href="{{site.google_review_url}}" target="_blank" rel="noopener">Leave us a Google review</a>{{/site.google_review_url}}</p>
     </div>
     <div class="map"><iframe title="Map of Hybrid Hub" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="{{map_embed_url}}"></iframe></div>
   </div>

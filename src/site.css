@@ -111,6 +111,7 @@ a:hover .photo img{transform:scale(1.03)}
 .details{list-style:none;padding:0;margin:28px 0 0;border-top:1px solid var(--ink)}
 .details li{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
 .details b{font-weight:600}
+.visit-links{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 28px}
 .details .tbc{color:var(--muted-dark)}
 .map{aspect-ratio:1/1;border-radius:6px;overflow:hidden;background:#e7e4dc}
 .map iframe{width:100%;height:100%;border:0;filter:grayscale(1)}
