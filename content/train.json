@@ -7,6 +7,7 @@
   "timetable_data_url": "https://www.wodboard.com/locations/855/timetable/e0ef59abf3/data.json",
   "timetable_book_label": "Book",
   "timetable_book_url": "https://www.wodboard.com/locations/855/timetable/e0ef59abf3",
+  "timetable_class_url": "https://www.wodboard.com/events/{id}",
   "timetable_embed_url": "https://www.wodboard.com/locations/855/timetable/e0ef59abf3?adi=1",
   "sections": [
     {
