@@ -1,17 +1,17 @@
 {
-  "title": "Drop-in enquiry",
-  "seo_description": "Visiting Newquay and want to train at Hybrid Hub? Request a call back about a drop-in class at Prow Park and we'll let you know what we can fit in.",
-  "intro": "Visiting Newquay, or want to try a class before joining? Leave your number and we'll call you back to see what we can fit in. Drop-ins depend on class space, so nothing is booked until we've spoken.",
+  "title": "Book a drop‑in session",
+  "seo_description": "Visiting Newquay? Book a drop-in session at Hybrid Hub, Prow Park. Give us your details and we'll call you to book it in.",
+  "intro": "Visiting Newquay, or want to try a class before joining? Give us your details and we'll give you a call to book you in.",
   "image": "/images/class-zone.jpg",
   "image_alt": "The class zone at Hybrid Hub",
   "points_title": "How it works",
   "points": [
-    "Request a call back below",
-    "We'll call you to talk through the classes with space",
-    "If we can fit you in, we'll confirm a time with you"
+    "Leave your details below",
+    "We'll give you a call",
+    "We'll book you into a session that suits you"
   ],
-  "form_heading": "Request a call back",
-  "form_intro": "This isn't a booking. We'll call you first.",
+  "form_heading": "Your details",
+  "form_intro": "Give us your details and we'll call you to book it in.",
   "fields": [
     {
       "label": "Full name",
@@ -60,8 +60,8 @@
       "show_when": []
     }
   ],
-  "button_label": "Request a call back",
-  "success_title": "Request sent",
-  "success_message": "Thanks. We'll give you a call to talk about a drop-in.",
-  "email_subject": "Drop-in call back request from the website"
+  "button_label": "Send my details",
+  "success_title": "Thanks!",
+  "success_message": "We'll give you a call soon to book you in.",
+  "email_subject": "Drop-in session request from the website"
 }
