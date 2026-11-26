@@ -4,7 +4,7 @@
   "details": [
     {
       "label": "Address",
-      "value": "Prow Park, Newquay, Cornwall"
+      "value": "Prow Park, Newquay, Cornwall, TR7 2SX"
     },
     {
       "label": "Hours",
@@ -12,8 +12,8 @@
     }
   ],
   "directions_label": "Get directions",
-  "directions_url": "https://www.google.com/maps/search/?api=1&query=Prow+Park+Newquay",
-  "map_embed_url": "https://www.google.com/maps?q=Prow+Park,+Newquay&output=embed",
+  "directions_url": "https://www.google.com/maps/dir/?api=1&destination=HYBRID+HUB+NQY,+Prow+Park,+Newquay+TR7+2SX",
+  "map_embed_url": "https://www.google.com/maps?q=HYBRID+HUB+NQY,+Newquay+TR7+2SX&output=embed",
   "owners_title": "Meet your co-owners",
   "owners_paragraphs": [
     "Luke Watson-Read and Josh Mares.",
