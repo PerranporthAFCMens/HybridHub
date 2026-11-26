@@ -37,6 +37,10 @@ The Train page can show the class timetable in two ways (Pages CMS → Train pag
 
 GitHub pauses hourly workflows in a repository with no activity for 60 days. Any save in Pages CMS counts as activity. If it does pause, Actions → Publish site → Enable workflow.
 
+## Instagram
+
+The home page shows the latest 6 Instagram posts, read through a free [Behold](https://behold.so) feed each time the site publishes (hourly). Set it up once: sign in at behold.so with the gym's Instagram, create a **JSON feed**, copy its link (`https://feeds.behold.so/...`) and paste it into Pages CMS → **Site settings** → **Instagram feed link**. Leave the link empty to hide the section. If the feed can't be reached, the section is hidden until the next publish. Behold's free plan refreshes posts once a day and allows 1,200 feed reads a month; the site uses about 750.
+
 ## Launching
 
 Before launch the site shows a "Preview" banner and asks search engines not to list it. When it's ready: Pages CMS → **Site settings** → tick **Site is launched** → Save.
