@@ -40,6 +40,16 @@
   </div>
 </section>
 
+{{#home.instagram_posts.0}}<section class="insta" aria-labelledby="ig">
+  <div class="wrap">
+    <div class="insta-head">
+      <div><p class="kicker">On Instagram</p><h2 id="ig">@{{site.instagram}}</h2></div>
+      <a class="btn" href="https://www.instagram.com/{{site.instagram}}/" target="_blank" rel="noopener">Follow us</a>
+    </div>
+    <div class="insta-grid">{{#home.instagram_posts}}<a href="{{link}}" target="_blank" rel="noopener"><img loading="lazy" src="{{image}}" alt="{{alt}}">{{#is_video}}<span class="insta-type" aria-label="Video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>{{/is_video}}{{#is_album}}<span class="insta-type" aria-label="Several photos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h11a2 2 0 0 1 2 2v11h-2V5H8z"/><rect x="3" y="8" width="13" height="13" rx="2"/></svg></span>{{/is_album}}{{#ago}}<span class="insta-ago">{{ago}}</span>{{/ago}}</a>{{/home.instagram_posts}}</div>
+  </div>
+</section>{{/home.instagram_posts.0}}
+
 </main>
 {{> footer}}
 </body>

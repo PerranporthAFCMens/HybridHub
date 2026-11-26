@@ -197,6 +197,48 @@ async function loadTimetable(train) {
   }
 }
 
+// Instagram: latest posts from a Behold JSON feed (behold.so, free plan). Read at build time,
+// so the feed only gets ~1 request an hour however many people visit the site.
+function ago(date, now) {
+  const mins = Math.max(0, (now - date) / 60000);
+  if (mins < 60) return Math.max(1, Math.round(mins)) + 'm';
+  if (mins < 1440) return Math.round(mins / 60) + 'h';
+  if (mins < 10080) return Math.round(mins / 1440) + 'd';
+  if (mins < 525600) return Math.round(mins / 10080) + 'w';
+  return Math.round(mins / 525600) + 'y';
+}
+async function loadInstagram(site) {
+  const url = String(site.instagram_feed_url || '').trim();
+  if (!url) return [];
+  try {
+    const res = await fetch(url, { headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(15000) });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const feed = await res.json();
+    const posts = Array.isArray(feed) ? feed : feed.posts;
+    if (!Array.isArray(posts)) throw new Error('unexpected data');
+    const now = Date.now();
+    const out = posts.map((p) => {
+      const sizes = p.sizes || {};
+      const img = (sizes.medium || sizes.large || sizes.small || {}).mediaUrl || p.thumbnailUrl || (p.mediaType !== 'VIDEO' && p.mediaUrl);
+      if (!img || !/^https:\/\//.test(img) || !/^https:\/\/(www\.)?instagram\.com\//.test(p.permalink || '')) return null;
+      const caption = String(p.prunedCaption || p.caption || '').replace(/\s+/g, ' ').trim();
+      const when = new Date(p.timestamp);
+      return {
+        image: img, link: p.permalink,
+        alt: caption ? caption.slice(0, 120) : 'Instagram post from Hybrid Hub',
+        ago: isNaN(when) ? '' : ago(when, now),
+        is_video: p.mediaType === 'VIDEO',
+        is_album: p.mediaType === 'CAROUSEL_ALBUM',
+      };
+    }).filter(Boolean).slice(0, 6);
+    console.log(`Instagram: ${out.length} posts read from the feed`);
+    return out;
+  } catch (err) {
+    console.warn(`Warning: couldn't read the Instagram feed (${err.message}); hiding the Instagram section`);
+    return [];
+  }
+}
+
 async function build() {
   const data = relativeAssets({
     site: readJSON('site'),
@@ -211,6 +253,7 @@ async function build() {
   data.train.timetable_days = await loadTimetable(data.train);
   data.train.use_own_timetable = !!data.train.timetable_days;
   data.train.use_embed = !data.train.timetable_days;
+  data.home.instagram_posts = await loadInstagram(data.site);
   data.apply.fields = prepareFields(data.apply.fields, 'apply.json');
   data.dropin.fields = prepareFields(data.dropin.fields, 'dropin.json');
 
