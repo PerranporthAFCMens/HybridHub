@@ -4,13 +4,24 @@
   if(!header||!toggle)return;
   toggle.addEventListener('click',function(){var open=header.classList.toggle('open');toggle.setAttribute('aria-expanded',open)});
 })();
-/* Forms (Apply, START): sent by email through Web3Forms, using the form key in Pages CMS → Site settings. */
+/* Apply form: sent by email through Web3Forms, using the form key in Pages CMS → Site settings. */
 (function(){
   var form=document.querySelector('[data-form]');if(!form)return;
   var msg=form.querySelector('.form-msg'),btn=form.querySelector('button[type=submit]'),done=form.parentNode.querySelector('.form-done'),label=btn.textContent;
   // Preselect a choice from the button that was clicked, e.g. apply.html?plan=2X
   var plan=(location.search.match(/[?&]plan=([^&]+)/)||[])[1];
   if(plan){plan=decodeURIComponent(plan).toLowerCase();var r=[].slice.call(form.querySelectorAll('input[type=radio]')).filter(function(i){return i.value.toLowerCase().indexOf(plan)>-1})[0];if(r)r.checked=true}
+  // Questions marked "Show only when" appear once one of those choices is picked (e.g. START's days and times).
+  var cond=[].slice.call(form.querySelectorAll('[data-show-when]'));
+  function shown(el){var q=el.closest('[data-show-when]');return !q||!q.hidden}
+  function update(){
+    var picked=[].map.call(form.querySelectorAll('input:checked'),function(i){return i.value.toLowerCase()});
+    cond.forEach(function(q){
+      var want=q.getAttribute('data-show-when').toLowerCase().split('|');
+      q.hidden=!want.some(function(w){return picked.some(function(v){return v.indexOf(w)>-1})});
+    });
+  }
+  update();form.addEventListener('change',update);
   form.addEventListener('input',function(ev){var f=ev.target.closest('.field');if(f)f.classList.remove('invalid')});
   form.addEventListener('change',function(ev){var f=ev.target.closest('.field');if(f)f.classList.remove('invalid')});
   function nameOf(field){var l=field.querySelector('legend,span');return l?l.childNodes[0].textContent.trim():'this'}
@@ -18,6 +29,7 @@
     ev.preventDefault();msg.textContent='';
     var bad=[];
     form.querySelectorAll('.field').forEach(function(field){
+      if(!shown(field))return;
       var ok=true;
       if(field.hasAttribute('data-group')){if(field.hasAttribute('data-required'))ok=!!field.querySelector('input:checked')}
       else{var i=field.querySelector('input,textarea'),v=i.value.trim();
@@ -31,6 +43,7 @@
     if(!key){msg.textContent='Sorry, this form can’t send from the website yet. Please try again soon.';return}
     var data={access_key:key,subject:form.getAttribute('data-subject'),from_name:'Hybrid Hub website'};
     form.querySelectorAll('.field').forEach(function(field){
+      if(!shown(field))return;
       var title=nameOf(field),value;
       if(field.hasAttribute('data-group'))value=[].map.call(field.querySelectorAll('input:checked'),function(i){return i.value}).join(', ');
       else{var i=field.querySelector('input,textarea');value=i.value.trim();if(i.type==='email'&&value)data.replyto=value}

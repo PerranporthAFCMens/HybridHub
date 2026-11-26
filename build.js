@@ -15,8 +15,8 @@ const path = require('path');
 
 const ROOT = __dirname;
 const OUT = path.join(ROOT, '_site');
-const PAGES = ['index', 'train', 'memberships', 'visit', 'apply', 'start', 'recovery'];
-const FIELD_TYPES = ['text', 'email', 'tel', 'date', 'radio', 'checkboxes', 'textarea'];
+const PAGES = ['index', 'train', 'memberships', 'visit', 'apply', 'recovery'];
+const FIELD_TYPES = ['text', 'email', 'tel', 'date', 'radio', 'checkboxes', 'textarea', 'note'];
 
 function readJSON(name) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, 'content', name + '.json'), 'utf8'));
@@ -126,7 +126,9 @@ function prepareFields(fields, file) {
     if (used[name]) name += '_' + (i + 1);
     used[name] = true;
     if ((type === 'radio' || type === 'checkboxes') && !(f.options || []).length) console.warn(`Warning: ${file}: "${f.label}" has no choices`);
-    return Object.assign({ required: false, options: [] }, f, { type, name, id: 'f-' + name, ['is_' + type]: true });
+    // "Show only when": the question appears only once one of these choices is picked earlier in the form.
+    const showWhen = (Array.isArray(f.show_when) ? f.show_when : [f.show_when]).map((v) => String(v || '').trim()).filter(Boolean);
+    return Object.assign({ required: false, options: [] }, f, { type, name, id: 'f-' + name, ['is_' + type]: true, show_when_attr: showWhen.join('|') });
   });
 }
 
@@ -184,13 +186,12 @@ async function build() {
     memberships: readJSON('memberships'),
     visit: readJSON('visit'),
     apply: readJSON('apply'),
-    start: readJSON('start'),
     recovery: readJSON('recovery'),
   });
   data.train.timetable_days = await loadTimetable(data.train);
   data.train.use_own_timetable = !!data.train.timetable_days;
   data.train.use_embed = !data.train.timetable_days;
-  for (const page of ['apply', 'start']) data[page].fields = prepareFields(data[page].fields, page + '.json');
+  data.apply.fields = prepareFields(data.apply.fields, 'apply.json');
 
   fs.rmSync(OUT, { recursive: true, force: true });
   fs.mkdirSync(OUT, { recursive: true });
@@ -205,7 +206,8 @@ async function build() {
     });
     fs.writeFileSync(path.join(OUT, file), render(tpl, [ctx], file));
   }
-  for (const f of ['site.css', 'site.js', 'favicon.svg', '404.html']) fs.copyFileSync(path.join(ROOT, 'src', f), path.join(OUT, f));
+  // start.html: START is now part of the Apply page; this small page sends old links there.
+  for (const f of ['site.css', 'site.js', 'favicon.svg', '404.html', 'start.html']) fs.copyFileSync(path.join(ROOT, 'src', f), path.join(OUT, f));
   copyDir(path.join(ROOT, 'images'), path.join(OUT, 'images'));
   // Until launch, ask search engines not to list the site (each page also carries a noindex tag).
   const siteBase = String(data.site.site_url || '').replace(/\/+$/, '');

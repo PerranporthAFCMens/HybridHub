@@ -43,8 +43,8 @@
         "24/7 gym access included",
         "Mon, Wed or Fri, 10:30 or 12:00"
       ],
-      "button_label": "Register interest",
-      "button_link": "start.html"
+      "button_label": "Apply to join",
+      "button_link": "apply.html?plan=START"
     },
     {
       "name": "Gym only & HYROX",
