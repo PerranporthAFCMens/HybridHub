@@ -16,6 +16,7 @@ content:
     format: json
     fields:
       - { name: kicker, label: Small line above the headline, type: string }
+      - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results. Leave empty to use the one in Site settings." }
       - name: hero
         label: Top of the page
         type: object
@@ -63,6 +64,7 @@ content:
     format: json
     fields:
       - { name: title, label: Page title, type: string }
+      - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results. Leave empty to use the one in Site settings." }
       - { name: intro, label: Intro, type: text }
       - { name: timetable_title, label: Timetable heading, type: string }
       - name: timetable_style
@@ -119,6 +121,7 @@ content:
     format: json
     fields:
       - { name: title, label: Page title, type: string }
+      - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results. Leave empty to use the one in Site settings." }
       - { name: intro, label: Intro, type: text }
       - name: plans
         label: Plans
@@ -145,6 +148,7 @@ content:
     format: json
     fields:
       - { name: title, label: Page title, type: string }
+      - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results. Leave empty to use the one in Site settings." }
       - name: details
         label: Details (address, hours, contact)
         type: object
@@ -172,6 +176,7 @@ content:
     format: json
     fields:
       - { name: title, label: Page title, type: string }
+      - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results. Leave empty to use the one in Site settings." }
       - { name: intro, label: Intro, type: text }
       - { name: image, label: Photo, type: image }
       - { name: image_alt, label: Photo description, type: string }
@@ -213,6 +218,7 @@ content:
     format: json
     fields:
       - { name: title, label: Page title, type: string }
+      - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results. Leave empty to use the one in Site settings." }
       - { name: intro, label: Intro, type: text }
       - { name: image, label: Photo, type: image }
       - { name: image_alt, label: Photo description, type: string }
