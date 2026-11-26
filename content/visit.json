@@ -11,6 +11,7 @@
       "value": "Open 24 hours"
     }
   ],
+  "what3words": "curl.headset.grief",
   "directions_label": "Get directions",
   "directions_url": "https://www.google.com/maps/dir/?api=1&destination=HYBRID+HUB+NQY,+Prow+Park,+Newquay+TR7+2SX",
   "map_embed_url": "https://www.google.com/maps?q=HYBRID+HUB+NQY,+Newquay+TR7+2SX&output=embed",
