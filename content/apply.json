@@ -1,6 +1,6 @@
 {
   "title": "Apply to join",
-  "intro": "A performance-focused gym, built around community, training and progress. Strength training, conditioning, HYROX, ATHX, KELTX and open gym training under one roof.",
+  "intro": "A performance-focused gym, built around community, training and progress. Join a class membership, or start with START, our small group training for beginners.",
   "image": "/images/open-gym.jpg",
   "image_alt": "Strength equipment in the open gym",
   "points_title": "What happens next",
@@ -16,19 +16,22 @@
       "label": "Full name",
       "type": "text",
       "required": true,
-      "options": []
+      "options": [],
+      "show_when": []
     },
     {
       "label": "Email address",
       "type": "email",
       "required": true,
-      "options": []
+      "options": [],
+      "show_when": []
     },
     {
       "label": "Phone",
       "type": "tel",
       "required": false,
-      "options": []
+      "options": [],
+      "show_when": []
     },
     {
       "label": "Membership",
@@ -36,7 +39,43 @@
       "required": true,
       "options": [
         "Full membership, £92.50 a month",
-        "Hybrid 2X (2 classes a week), £72.50 a month"
+        "Hybrid 2X (2 classes a week), £72.50 a month",
+        "START small group (2 coached sessions a week)"
+      ],
+      "show_when": []
+    },
+    {
+      "label": "START is small group training for 4 to 6 people, with the same programming as our classes, 2 coached sessions a week and full gym access included. No experience needed.",
+      "type": "note",
+      "required": false,
+      "options": [],
+      "show_when": [
+        "START"
+      ]
+    },
+    {
+      "label": "Days you can train",
+      "type": "checkboxes",
+      "required": true,
+      "options": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "show_when": [
+        "START"
+      ]
+    },
+    {
+      "label": "Session times that suit you",
+      "type": "checkboxes",
+      "required": true,
+      "options": [
+        "10:30am",
+        "12:00pm"
+      ],
+      "show_when": [
+        "START"
       ]
     },
     {
@@ -47,13 +86,18 @@
         "Early morning",
         "Mid-morning",
         "Evening"
+      ],
+      "show_when": [
+        "Full",
+        "2X"
       ]
     },
     {
       "label": "Anything else we should know?",
       "type": "textarea",
       "required": false,
-      "options": []
+      "options": [],
+      "show_when": []
     }
   ],
   "button_label": "Send application",

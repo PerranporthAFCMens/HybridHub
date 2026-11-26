@@ -23,11 +23,11 @@ The Hybrid Hub Newquay website: four pages (Home, Train, Memberships, Visit).
 
 ## Forms (one-time setup)
 
-The Apply and START forms are emailed to the owners by [Web3Forms](https://web3forms.com) (free, up to 250 a month, no account needed).
+The Apply to join form is emailed to the owners by [Web3Forms](https://web3forms.com) (free, up to 250 a month, no account needed).
 1. On web3forms.com, enter the email address that should receive them and copy the **Access Key** it emails you.
 2. Pages CMS → **Site settings** → paste it into **Form key** → Save.
 The key is meant to be public, so it's fine in this repository. Until it's added, the forms tell visitors they can't send yet.
-The questions on each form can be changed in Pages CMS (Apply page / START page → Questions).
+The questions can be changed in Pages CMS (Apply page → Questions). START is one of the membership choices on that form: its days and times questions use **Show only when** (START), so they only appear when START is picked. The old START page address (start.html) now sends visitors to the Apply page with START already picked.
 
 ## Timetable
 
