@@ -16,6 +16,7 @@ content:
     format: json
     fields:
       - { name: kicker, label: Small line above the headline, type: string }
+      - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results. Leave empty to use the one in Site settings." }
       - name: hero
         label: Top of the page
         type: object
@@ -63,6 +64,7 @@ content:
     format: json
     fields:
       - { name: title, label: Page title, type: string }
+      - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results. Leave empty to use the one in Site settings." }
       - { name: intro, label: Intro, type: text }
       - { name: timetable_title, label: Timetable heading, type: string }
       - name: timetable_style
@@ -119,6 +121,7 @@ content:
     format: json
     fields:
       - { name: title, label: Page title, type: string }
+      - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results. Leave empty to use the one in Site settings." }
       - { name: intro, label: Intro, type: text }
       - name: plans
         label: Plans
@@ -145,6 +148,7 @@ content:
     format: json
     fields:
       - { name: title, label: Page title, type: string }
+      - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results. Leave empty to use the one in Site settings." }
       - name: details
         label: Details (address, hours, contact)
         type: object
@@ -172,6 +176,49 @@ content:
     format: json
     fields:
       - { name: title, label: Page title, type: string }
+      - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results. Leave empty to use the one in Site settings." }
+      - { name: intro, label: Intro, type: text }
+      - { name: image, label: Photo, type: image }
+      - { name: image_alt, label: Photo description, type: string }
+      - { name: points_title, label: Heading above the numbered list, type: string }
+      - { name: points, label: Numbered list, type: string, list: true }
+      - { name: form_heading, label: Form heading, type: string }
+      - { name: form_intro, label: Text above the form, type: text }
+      - name: fields
+        label: Questions
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{label}" } }
+        fields:
+          - { name: label, label: Question, type: string }
+          - name: type
+            label: Answer type
+            type: select
+            options:
+              values:
+                - { value: text, label: Short text }
+                - { value: email, label: Email address }
+                - { value: tel, label: Phone number }
+                - { value: date, label: Date }
+                - { value: textarea, label: Long text }
+                - { value: radio, label: Pick one }
+                - { value: checkboxes, label: Pick any }
+                - { value: note, label: "Information text (no answer, shows the question text as a note)" }
+          - { name: required, label: Must be answered, type: boolean }
+          - { name: options, label: "Choices (for Pick one / Pick any)", type: string, list: true }
+          - { name: show_when, label: "Show only when one of these is picked (leave empty to always show)", type: string, list: true, description: "A word from an earlier choice, e.g. START. The question stays hidden until a choice containing it is picked." }
+      - { name: button_label, label: Send button text, type: string }
+      - { name: success_title, label: Heading after sending, type: string }
+      - { name: success_message, label: Message after sending, type: text }
+      - { name: email_subject, label: Subject of the email you receive, type: string }
+
+  - name: dropin
+    label: Drop-in page
+    type: file
+    path: content/dropin.json
+    format: json
+    fields:
+      - { name: title, label: Page title, type: string }
+      - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results. Leave empty to use the one in Site settings." }
       - { name: intro, label: Intro, type: text }
       - { name: image, label: Photo, type: image }
       - { name: image_alt, label: Photo description, type: string }
@@ -213,6 +260,7 @@ content:
     format: json
     fields:
       - { name: title, label: Page title, type: string }
+      - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results. Leave empty to use the one in Site settings." }
       - { name: intro, label: Intro, type: text }
       - { name: image, label: Photo, type: image }
       - { name: image_alt, label: Photo description, type: string }

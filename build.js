@@ -15,7 +15,21 @@ const path = require('path');
 
 const ROOT = __dirname;
 const OUT = path.join(ROOT, '_site');
-const PAGES = ['index', 'train', 'memberships', 'visit', 'apply', 'recovery'];
+const PAGES = ['index', 'train', 'memberships', 'visit', 'apply', 'dropin', 'recovery'];
+// Pages from the old Wix site (from its sitemap) and where they now live. The 404 page has the same list as a fallback.
+const OLD_WIX_PAGES = {
+  'applytojointhehub': 'apply.html',
+  'registerforstart': 'apply.html?plan=START',
+  'hyperice': 'recovery.html',
+  'book-online': 'train.html',
+  'pricing-plans/list': 'memberships.html',
+  'service-page/functional-fitness': 'train.html',
+  'service-page/premium-open-gym': 'memberships.html',
+  'service-page/strength-conditioning': 'train.html',
+  'xmasparty': '',
+  'blank': '', 'blank-1': '', 'blank-2': '', 'blank-3': '', 'copy-of-founders5': '',
+};
+const siteBaseFor = (data) => String(data.site.site_url || '').replace(/\/+$/, '');
 const FIELD_TYPES = ['text', 'email', 'tel', 'date', 'radio', 'checkboxes', 'textarea', 'note'];
 
 function readJSON(name) {
@@ -191,12 +205,14 @@ async function build() {
     memberships: readJSON('memberships'),
     visit: readJSON('visit'),
     apply: readJSON('apply'),
+    dropin: readJSON('dropin'),
     recovery: readJSON('recovery'),
   });
   data.train.timetable_days = await loadTimetable(data.train);
   data.train.use_own_timetable = !!data.train.timetable_days;
   data.train.use_embed = !data.train.timetable_days;
   data.apply.fields = prepareFields(data.apply.fields, 'apply.json');
+  data.dropin.fields = prepareFields(data.dropin.fields, 'dropin.json');
 
   fs.rmSync(OUT, { recursive: true, force: true });
   fs.mkdirSync(OUT, { recursive: true });
@@ -207,12 +223,24 @@ async function build() {
     const ctx = Object.assign({}, data, {
       page, ['is_' + page]: true,
       page_url: base + (page === 'index' ? '/' : '/' + file),
+      // Each page can have its own Google description; otherwise the one in Site settings is used.
+      page_description: (data[page === 'index' ? 'home' : page] || {}).seo_description || data.site.description,
+      page_title: page === 'index' ? data.site.title : `${data[page].title} · ${data.site.title}`,
       og_image: base + '/' + String(data.home.hero.image || '').replace(/^\//, ''),
     });
     fs.writeFileSync(path.join(OUT, file), render(tpl, [ctx], file));
   }
   // start.html: START is now part of the Apply page; this small page sends old links there.
-  for (const f of ['site.css', 'site.js', 'favicon.svg', '404.html', 'start.html']) fs.copyFileSync(path.join(ROOT, 'src', f), path.join(OUT, f));
+  for (const f of ['site.css', 'site.js', 'favicon.svg', 'apple-touch-icon.png', '404.html', 'start.html']) fs.copyFileSync(path.join(ROOT, 'src', f), path.join(OUT, f));
+  // Old addresses from the Wix site get a small page that sends visitors (and Google) to the new page.
+  // Unlike the 404 page's fallback, these answer "found", so Google moves the old results across.
+  for (const [from, to] of Object.entries(OLD_WIX_PAGES)) {
+    const target = (siteBaseFor(data) || '') + '/' + to;
+    const dir = path.join(OUT, from);
+    fs.mkdirSync(dir, { recursive: true });
+    const up = '../'.repeat(from.split('/').length);
+    fs.writeFileSync(path.join(dir, 'index.html'), `<!doctype html>\n<html lang="en-GB">\n<head>\n<meta charset="utf-8">\n<title>Moved · ${escapeHTML(data.site.title)}</title>\n<link rel="canonical" href="${escapeHTML(target)}">\n<meta http-equiv="refresh" content="0; url=${escapeHTML(up + to)}">\n</head>\n<body>\n<p>This page has moved: <a href="${escapeHTML(up + to)}">continue</a>.</p>\n<script>location.replace(${JSON.stringify(up + to)} + location.hash)</script>\n</body>\n</html>\n`);
+  }
   copyDir(path.join(ROOT, 'images'), path.join(OUT, 'images'));
   // Until launch, ask search engines not to list the site (each page also carries a noindex tag).
   const siteBase = String(data.site.site_url || '').replace(/\/+$/, '');
