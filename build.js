@@ -167,7 +167,12 @@ async function loadTimetable(train) {
       const day = days.find((d) => d.key === key);
       if (!day) continue;
       const s = londonParts(start), f = londonParts(finish);
-      day.classes.push({ sort: start.getTime(), start: `${s.hour}:${s.minute}`, end: `${f.hour}:${f.minute}`, title: String(e.title || 'Class').trim() });
+      // Link each class straight to that session in WodBoard (members sign in, then book). If the class
+      // has no id, or no class link is set, fall back to the general booking link.
+      const bookUrl = train.timetable_class_url && e.id != null
+        ? train.timetable_class_url.replace('{id}', encodeURIComponent(e.id))
+        : train.timetable_book_url;
+      day.classes.push({ sort: start.getTime(), start: `${s.hour}:${s.minute}`, end: `${f.hour}:${f.minute}`, title: String(e.title || 'Class').trim(), book_url: bookUrl });
     }
     for (const d of days) d.classes.sort((a, b) => a.sort - b.sort);
     console.log(`Timetable: ${events.length} classes read from WodBoard`);

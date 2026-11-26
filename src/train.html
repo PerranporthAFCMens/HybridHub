@@ -24,14 +24,14 @@
       <div class="tt-days" role="tablist" aria-label="Choose a day">{{#timetable_days}}<button type="button" class="tt-day" role="tab" data-day="{{key}}"><span>{{weekday}}</span><b>{{daynum}}</b></button>{{/timetable_days}}</div>
       {{#timetable_days}}<div class="tt-list" data-day="{{key}}" role="tabpanel">
         <h3 class="tt-date">{{full}}</h3>
-        {{#classes}}<div class="tt-row"><span class="tt-time">{{start}}</span><span class="tt-name">{{title}}<small>{{start}} – {{end}}</small></span><a class="tt-book" href="{{timetable_book_url}}" target="_blank" rel="noopener">{{timetable_book_label}}</a></div>
+        {{#classes}}<div class="tt-row"><span class="tt-time">{{start}}</span><span class="tt-name">{{title}}<small>{{start}} – {{end}}</small></span><a class="tt-book" href="{{book_url}}" target="_blank" rel="noopener">{{timetable_book_label}}</a></div>
         {{/classes}}{{^classes}}<p class="tt-none">No classes on this day.</p>{{/classes}}
       </div>
       {{/timetable_days}}
       </div>
       <div class="tt-week" hidden>{{#timetable_days}}<div class="tt-col">
         <div class="tt-colhead"><span>{{weekday}}</span><b>{{daynum}}</b></div>
-        {{#classes}}<a class="tt-card" href="{{timetable_book_url}}" target="_blank" rel="noopener"><b>{{start}}</b><span>{{title}}</span><small>until {{end}}</small></a>
+        {{#classes}}<a class="tt-card" href="{{book_url}}" target="_blank" rel="noopener"><b>{{start}}</b><span>{{title}}</span><small>until {{end}}</small></a>
         {{/classes}}{{^classes}}<p class="tt-cardnone">No classes</p>{{/classes}}
       </div>{{/timetable_days}}</div>
     </div>{{/use_own_timetable}}

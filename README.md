@@ -35,6 +35,8 @@ The Train page can show the class timetable in two ways (Pages CMS → Train pag
 - **Our design**: the site reads WodBoard's class list each time it publishes and shows it in the site's own style. The publish workflow runs every hour, so changes in WodBoard appear within the hour. If WodBoard can't be reached, the page shows WodBoard's embed instead.
 - **WodBoard's design**: WodBoard's own embedded timetable, always live.
 
+In our design, each class's Book link goes to that class in WodBoard (`https://www.wodboard.com/events/{id}`, set in Train page → Book link for each class). Members sign in to WodBoard and book. Clear that field to send every Book link to the general Book button link instead.
+
 GitHub pauses hourly workflows in a repository with no activity for 60 days. Any save in Pages CMS counts as activity. If it does pause, Actions → Publish site → Enable workflow.
 
 ## Launching

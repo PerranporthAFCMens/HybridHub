@@ -82,7 +82,8 @@ content:
             - { value: week, label: Week }
             - { value: day, label: Day }
       - { name: timetable_book_label, label: Book button text, type: string }
-      - { name: timetable_book_url, label: Book button link, type: string }
+      - { name: timetable_book_url, label: "Book button link (used when a class can't be linked on its own)", type: string }
+      - { name: timetable_class_url, label: "Book link for each class (WodBoard, {id} is the class). Leave empty to use the Book button link", type: string }
       - { name: timetable_data_url, label: "WodBoard class data link (our design only, don't change)", type: string }
       - { name: timetable_link_label, label: Timetable link text, type: string }
       - { name: timetable_url, label: Full timetable link (WodBoard), type: string }
