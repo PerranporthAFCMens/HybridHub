@@ -11,7 +11,7 @@
     },
     {
       "heading": "What we collect",
-      "text": "Only what you type into our forms: your name, email address and phone number, the membership you are interested in, when you would like to train, how you heard about us, and anything else you choose to tell us.\n\nYour form also tells us how you reached our website, for example from Instagram, a Google search or a link we shared. This is the name of the website you came from, never the page you were reading there, and it helps us see which of our posts and listings are working."
+      "text": "Only what you type into our forms: your name, email address and phone number, the membership you are interested in, when you would like to train, how you heard about us, and anything else you choose to tell us.\n\nYour form also tells us how you reached our website, for example from Instagram, a Google search or a link we shared. This is just the name of the website you came from, not the page you were reading, and it helps us see which of our posts and listings are working."
     },
     {
       "heading": "How we use it",
@@ -31,7 +31,7 @@
     },
     {
       "heading": "Browsing this website",
-      "text": "This website does not use cookies or advertising trackers, and nothing follows you to other websites.\n\nWe count visits with Cloudflare Web Analytics, which does not use cookies and does not identify you. It tells us things like how many people visited, which pages they looked at and which websites sent them here, as totals only.\n\nWhile you browse, your browser remembers the website you arrived from until you close the tab, so that it can go with your form if you send one. It is not sent anywhere unless you send a form.\n\nSome parts are loaded from other companies: the fonts from Google Fonts, the map on the Visit page from Google Maps (which may set its own cookies), and the Instagram photos from Behold. Like any website, these see your device's internet address when they send the content."
+      "text": "We use Cloudflare Web Analytics to count visits. It works without cookies and shows us totals only, such as how many people visited, which pages they looked at and which websites sent them here.\n\nWhile you browse, your browser remembers the website you arrived from until you close the tab, so that it can go with your form if you send one.\n\nSome parts of the site are loaded from other services: the fonts from Google Fonts, the map on the Visit page from Google Maps, and the Instagram photos from Behold. These may set their own cookies and see your device's internet address.\n\nWe will update this notice if any of this changes."
     }
   ]
 }
