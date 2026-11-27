@@ -95,7 +95,7 @@
     },
     {
       "label": "How did you hear about us?",
-      "type": "checkboxes",
+      "type": "select",
       "required": false,
       "options": [
         "Instagram",

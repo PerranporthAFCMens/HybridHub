@@ -203,9 +203,10 @@ content:
                 - { value: textarea, label: Long text }
                 - { value: radio, label: Pick one }
                 - { value: checkboxes, label: Pick any }
+                - { value: select, label: Pick one from a dropdown }
                 - { value: note, label: "Information text (no answer, shows the question text as a note)" }
           - { name: required, label: Must be answered, type: boolean }
-          - { name: options, label: "Choices (for Pick one / Pick any)", type: string, list: true }
+          - { name: options, label: "Choices (for Pick one / Pick any / dropdown)", type: string, list: true }
           - { name: show_when, label: "Show only when one of these is picked (leave empty to always show)", type: string, list: true, description: "A word from an earlier choice, e.g. START. The question stays hidden until a choice containing it is picked." }
       - { name: button_label, label: Send button text, type: string }
       - { name: success_title, label: Heading after sending, type: string }
@@ -245,9 +246,10 @@ content:
                 - { value: textarea, label: Long text }
                 - { value: radio, label: Pick one }
                 - { value: checkboxes, label: Pick any }
+                - { value: select, label: Pick one from a dropdown }
                 - { value: note, label: "Information text (no answer, shows the question text as a note)" }
           - { name: required, label: Must be answered, type: boolean }
-          - { name: options, label: "Choices (for Pick one / Pick any)", type: string, list: true }
+          - { name: options, label: "Choices (for Pick one / Pick any / dropdown)", type: string, list: true }
           - { name: show_when, label: "Show only when one of these is picked (leave empty to always show)", type: string, list: true, description: "A word from an earlier choice, e.g. START. The question stays hidden until a choice containing it is picked." }
       - { name: button_label, label: Send button text, type: string }
       - { name: success_title, label: Heading after sending, type: string }

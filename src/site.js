@@ -47,12 +47,12 @@ var hhSource=(function(){
       if(!shown(field))return;
       var ok=true;
       if(field.hasAttribute('data-group')){if(field.hasAttribute('data-required'))ok=!!field.querySelector('input:checked')}
-      else{var i=field.querySelector('input,textarea'),v=i.value.trim();
+      else{var i=field.querySelector('input,textarea,select'),v=i.value.trim();
         if(i.required&&!v)ok=false;
         else if(v&&i.type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))ok=false}
       field.classList.toggle('invalid',!ok);if(!ok)bad.push(field);
     });
-    if(bad.length){msg.textContent='Please check: '+bad.map(nameOf).join(', ')+'.';var f=bad[0].querySelector('input,textarea');if(f)f.focus();return}
+    if(bad.length){msg.textContent='Please check: '+bad.map(nameOf).join(', ')+'.';var f=bad[0].querySelector('input,textarea,select');if(f)f.focus();return}
     if(form.elements.botcheck.checked)return;
     var key=form.getAttribute('data-key');
     if(!key){msg.textContent='Sorry, this form can’t send from the website yet. Please try again soon.';return}
@@ -61,7 +61,7 @@ var hhSource=(function(){
       if(!shown(field))return;
       var title=nameOf(field),value;
       if(field.hasAttribute('data-group'))value=[].map.call(field.querySelectorAll('input:checked'),function(i){return i.value}).join(', ');
-      else{var i=field.querySelector('input,textarea');value=i.value.trim();if(i.type==='email'&&value)data.replyto=value}
+      else{var i=field.querySelector('input,textarea,select');value=i.value.trim();if(i.type==='email'&&value)data.replyto=value}
       data[title]=value||'-';
     });
     data['Came to the website']=hhSource;
