@@ -298,3 +298,4 @@ h1,h2,h3{text-wrap:balance}
 .prose-date{font-size:14px;margin-top:40px!important}
 .form-privacy{margin:0;font-size:13px;line-height:1.5;color:var(--muted)}
 .form-privacy a{color:inherit}
+@media (max-width:600px){footer nav{width:100%;justify-content:space-between;gap:12px 10px;font-size:13px;white-space:nowrap}}
