@@ -289,3 +289,11 @@ h1,h2,h3{text-wrap:balance}
 .insta-type svg{width:100%;height:100%;fill:#fff}
 @media (max-width:860px){.insta-grid{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:560px){.insta-head .btn{min-height:44px;padding:0 20px}.insta-grid{gap:6px}}
+/* Privacy notice */
+.prose{max-width:calc(68ch + 2 * var(--gutter))}
+.prose h2{font-size:clamp(20px,2vw,24px);margin:40px 0 10px}
+.prose p{color:var(--muted);line-height:1.65;margin:0}
+.prose .lead{margin:20px 0 8px}
+.prose-date{font-size:14px;margin-top:40px!important}
+.form-privacy{margin:0;font-size:13px;line-height:1.5;color:var(--muted)}
+.form-privacy a{color:inherit}

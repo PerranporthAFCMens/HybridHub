@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+{{> head}}
+<title>{{privacy.title}} · {{site.title}}</title>
+</head>
+<body>
+{{> header}}
+<main>
+{{#privacy}}
+<section aria-labelledby="t">
+  <div class="wrap prose">
+    <h1 id="t">{{title}}</h1>
+    <p class="lead">{{intro}}</p>
+    {{#sections}}<h2>{{heading}}</h2>
+    <p>{{text}}</p>
+    {{/sections}}<p class="prose-date">{{updated}}</p>
+  </div>
+</section>
+{{/privacy}}
+</main>
+{{> footer}}
+</body>
+</html>
