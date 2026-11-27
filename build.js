@@ -30,7 +30,7 @@ const OLD_WIX_PAGES = {
   'blank': '', 'blank-1': '', 'blank-2': '', 'blank-3': '', 'copy-of-founders5': '',
 };
 const siteBaseFor = (data) => String(data.site.site_url || '').replace(/\/+$/, '');
-const FIELD_TYPES = ['text', 'email', 'tel', 'date', 'radio', 'checkboxes', 'textarea', 'note'];
+const FIELD_TYPES = ['text', 'email', 'tel', 'date', 'radio', 'checkboxes', 'select', 'textarea', 'note'];
 
 function readJSON(name) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, 'content', name + '.json'), 'utf8'));
@@ -139,7 +139,7 @@ function prepareFields(fields, file) {
     let name = String(f.label || 'question').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '').slice(0, 40) || 'question';
     if (used[name]) name += '_' + (i + 1);
     used[name] = true;
-    if ((type === 'radio' || type === 'checkboxes') && !(f.options || []).length) console.warn(`Warning: ${file}: "${f.label}" has no choices`);
+    if ((type === 'radio' || type === 'checkboxes' || type === 'select') && !(f.options || []).length) console.warn(`Warning: ${file}: "${f.label}" has no choices`);
     // "Show only when": the question appears only once one of these choices is picked earlier in the form.
     const showWhen = (Array.isArray(f.show_when) ? f.show_when : [f.show_when]).map((v) => String(v || '').trim()).filter(Boolean);
     return Object.assign({ required: false, options: [] }, f, { type, name, id: 'f-' + name, ['is_' + type]: true, show_when_attr: showWhen.join('|') });

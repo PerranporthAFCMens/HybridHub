@@ -13,3 +13,5 @@
   </div>
 </footer>
 <script src="site.js"></script>
+{{#site.analytics_token}}<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{site.analytics_token}}"}'></script>
+{{/site.analytics_token}}

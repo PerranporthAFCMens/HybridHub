@@ -203,9 +203,10 @@ content:
                 - { value: textarea, label: Long text }
                 - { value: radio, label: Pick one }
                 - { value: checkboxes, label: Pick any }
+                - { value: select, label: Pick one from a dropdown }
                 - { value: note, label: "Information text (no answer, shows the question text as a note)" }
           - { name: required, label: Must be answered, type: boolean }
-          - { name: options, label: "Choices (for Pick one / Pick any)", type: string, list: true }
+          - { name: options, label: "Choices (for Pick one / Pick any / dropdown)", type: string, list: true }
           - { name: show_when, label: "Show only when one of these is picked (leave empty to always show)", type: string, list: true, description: "A word from an earlier choice, e.g. START. The question stays hidden until a choice containing it is picked." }
       - { name: button_label, label: Send button text, type: string }
       - { name: success_title, label: Heading after sending, type: string }
@@ -245,9 +246,10 @@ content:
                 - { value: textarea, label: Long text }
                 - { value: radio, label: Pick one }
                 - { value: checkboxes, label: Pick any }
+                - { value: select, label: Pick one from a dropdown }
                 - { value: note, label: "Information text (no answer, shows the question text as a note)" }
           - { name: required, label: Must be answered, type: boolean }
-          - { name: options, label: "Choices (for Pick one / Pick any)", type: string, list: true }
+          - { name: options, label: "Choices (for Pick one / Pick any / dropdown)", type: string, list: true }
           - { name: show_when, label: "Show only when one of these is picked (leave empty to always show)", type: string, list: true, description: "A word from an earlier choice, e.g. START. The question stays hidden until a choice containing it is picked." }
       - { name: button_label, label: Send button text, type: string }
       - { name: success_title, label: Heading after sending, type: string }
@@ -298,6 +300,7 @@ content:
       - { name: postcode, label: Postcode, type: string, description: "Exactly as on the Google Business Profile. Helps Google match the site to the profile." }
       - { name: join_label, label: Join button text, type: string }
       - { name: form_key, label: Form key (from web3forms.com), type: string, description: "The Apply form is emailed to the address this key was created with." }
+      - { name: analytics_token, label: "Visitor stats token (from Cloudflare Web Analytics; leave empty to turn off)", type: string, description: "In Cloudflare, Web Analytics → your site → Manage site, copy the token from the snippet (the letters and numbers after \"token\":)." }
       - { name: preview_banner, label: Preview banner text (only before launch), type: string }
       - { name: compare_label, label: Banner link text (only before launch), type: string }
       - { name: compare_url, label: "Banner link, e.g. the old site (leave empty to hide)", type: string }

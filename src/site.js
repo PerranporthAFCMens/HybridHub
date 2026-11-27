@@ -4,6 +4,21 @@
   if(!header||!toggle)return;
   toggle.addEventListener('click',function(){var open=header.classList.toggle('open');toggle.setAttribute('aria-expanded',open)});
 })();
+/* Where this visit came from (another website or a ?utm_source= link), kept for this tab only
+   so the Apply and drop-in forms can say how the person found us. Never sent unless a form is sent. */
+var hhSource=(function(){
+  var k='hh-source',saved;
+  try{saved=sessionStorage.getItem(k)}catch(e){}
+  if(saved!=null)return saved;
+  var q=function(n){var m=location.search.match(new RegExp('[?&]'+n+'=([^&]*)'));return m?decodeURIComponent(m[1].replace(/\+/g,' ')):''};
+  var parts=[],utm=[q('utm_source'),q('utm_medium'),q('utm_campaign')].filter(Boolean).join(' / ');
+  if(utm)parts.push(utm);
+  var ref='';try{var r=new URL(document.referrer);if(r.hostname&&r.hostname!==location.hostname)ref=r.hostname.replace(/^www\./,'')}catch(e){}
+  if(ref)parts.push('from '+ref);
+  var v=parts.join(', ')||'Typed the address or a bookmark (no referring website)';
+  try{sessionStorage.setItem(k,v)}catch(e){}
+  return v;
+})();
 /* Apply form: sent by email through Web3Forms, using the form key in Pages CMS → Site settings. */
 (function(){
   var form=document.querySelector('[data-form]');if(!form)return;
@@ -32,12 +47,12 @@
       if(!shown(field))return;
       var ok=true;
       if(field.hasAttribute('data-group')){if(field.hasAttribute('data-required'))ok=!!field.querySelector('input:checked')}
-      else{var i=field.querySelector('input,textarea'),v=i.value.trim();
+      else{var i=field.querySelector('input,textarea,select'),v=i.value.trim();
         if(i.required&&!v)ok=false;
         else if(v&&i.type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))ok=false}
       field.classList.toggle('invalid',!ok);if(!ok)bad.push(field);
     });
-    if(bad.length){msg.textContent='Please check: '+bad.map(nameOf).join(', ')+'.';var f=bad[0].querySelector('input,textarea');if(f)f.focus();return}
+    if(bad.length){msg.textContent='Please check: '+bad.map(nameOf).join(', ')+'.';var f=bad[0].querySelector('input,textarea,select');if(f)f.focus();return}
     if(form.elements.botcheck.checked)return;
     var key=form.getAttribute('data-key');
     if(!key){msg.textContent='Sorry, this form can’t send from the website yet. Please try again soon.';return}
@@ -46,9 +61,10 @@
       if(!shown(field))return;
       var title=nameOf(field),value;
       if(field.hasAttribute('data-group'))value=[].map.call(field.querySelectorAll('input:checked'),function(i){return i.value}).join(', ');
-      else{var i=field.querySelector('input,textarea');value=i.value.trim();if(i.type==='email'&&value)data.replyto=value}
+      else{var i=field.querySelector('input,textarea,select');value=i.value.trim();if(i.type==='email'&&value)data.replyto=value}
       data[title]=value||'-';
     });
+    data['Came to the website']=hhSource;
     btn.disabled=true;btn.textContent='Sending…';
     fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
       .then(function(r){return r.json()})
