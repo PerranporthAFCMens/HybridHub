@@ -301,3 +301,22 @@ content:
       - { name: preview_banner, label: Preview banner text (only before launch), type: string }
       - { name: compare_label, label: Banner link text (only before launch), type: string }
       - { name: compare_url, label: "Banner link, e.g. the old site (leave empty to hide)", type: string }
+
+  - name: privacy
+    label: Privacy notice
+    type: file
+    path: content/privacy.json
+    format: json
+    fields:
+      - { name: title, label: Page title, type: string }
+      - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results. Leave empty to use the one in Site settings." }
+      - { name: intro, label: Intro, type: text }
+      - { name: updated, label: Last updated line, type: string, description: "Change the date whenever you change this notice." }
+      - { name: form_line, label: Line under the Apply and drop-in forms, type: text, description: "Shown just above the send button, followed by a link to this page. Leave empty to hide it." }
+      - name: sections
+        label: Sections
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{heading}" } }
+        fields:
+          - { name: heading, label: Heading, type: string }
+          - { name: text, label: Text, type: text, description: "Leave an empty line between paragraphs." }
