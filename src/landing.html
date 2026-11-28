@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+{{> head}}
+<title>{{page_title}}</title>
+</head>
+<body>
+{{> header}}
+<main>
+{{#landing}}
+<section aria-labelledby="t">
+  <div class="wrap row">
+    <div>
+      {{#kicker}}<p class="kicker">{{kicker}}</p>{{/kicker}}
+      <h1 id="t">{{title}}</h1>
+      <p class="lead">{{intro}}</p>
+      {{#location_line}}<p class="note">{{location_line}}</p>{{/location_line}}
+      <div class="actions lp-actions">{{#button_link}}<a class="btn" href="{{button_link}}">{{button_label}}</a>{{/button_link}}{{#link_url}}<a class="link" href="{{link_url}}">{{link_label}}</a>{{/link_url}}</div>
+    </div>
+    <div class="photo"><img src="{{image}}" alt="{{image_alt}}"></div>
+  </div>
+</section>
+
+{{#blocks.0}}<section style="padding-top:0" aria-labelledby="b">
+  <div class="wrap">
+    <h2 id="b">{{blocks_title}}</h2>
+    {{#blocks_intro}}<p class="ct-intro">{{blocks_intro}}</p>{{/blocks_intro}}
+    <div class="kit lp-kit">{{#blocks}}<article class="kit-item">
+      <span class="kit-num">0{{index}}</span>
+      <h3>{{title}}</h3>
+      <p>{{text}}</p>
+    </article>{{/blocks}}</div>
+  </div>
+</section>{{/blocks.0}}
+
+{{#sections.0}}<section style="padding-top:0">
+  <div class="wrap">
+    {{#sections}}<div class="row{{^odd}} flip{{/odd}}">
+      <div class="photo"><img loading="lazy" src="{{image}}" alt="{{image_alt}}"></div>
+      <div><h2>{{title}}</h2>{{#paragraphs}}<p>{{.}}</p>{{/paragraphs}}{{#link_url}}<a class="link" href="{{link_url}}">{{link_label}}</a>{{/link_url}}</div>
+    </div>
+    {{/sections}}
+  </div>
+</section>{{/sections.0}}
+
+{{#people.0}}<section style="padding-top:0" aria-labelledby="p">
+  <div class="wrap">
+    <h2 id="p">{{people_title}}</h2>
+    {{#people_intro}}<p class="ct-intro">{{people_intro}}</p>{{/people_intro}}
+    <div class="people">{{#people}}<article class="person">
+      {{#image}}<div class="photo"><img loading="lazy" src="{{image}}" alt="{{image_alt}}"></div>{{/image}}
+      <h3>{{name}}</h3>
+      {{#role}}<p class="person-role">{{role}}</p>{{/role}}
+      {{#achievements.0}}<ul class="person-wins">{{#achievements}}<li>{{.}}</li>{{/achievements}}</ul>{{/achievements.0}}
+      {{#instagram}}<a class="link" href="https://www.instagram.com/{{instagram}}/" target="_blank" rel="noopener">@{{instagram}}</a>{{/instagram}}
+    </article>{{/people}}</div>
+  </div>
+</section>{{/people.0}}
+
+{{#show_dropin_form}}<section style="padding-top:0" id="book" aria-labelledby="f">
+  <div class="wrap form-grid">
+    <aside class="form-aside">
+      <h2 id="f">{{form_title}}</h2>
+      {{#dropin}}<p class="lead">{{intro}}</p>
+      <h3 class="points-title">{{points_title}}</h3>
+      <ol class="points">{{#points}}<li>{{.}}</li>{{/points}}</ol>{{/dropin}}
+    </aside>
+    {{#dropin}}{{> formcard}}{{/dropin}}
+  </div>
+</section>{{/show_dropin_form}}
+
+{{#show_visit}}<section style="padding-top:0" aria-labelledby="v">
+  <div class="wrap row">
+    <div>
+      <h2 id="v">{{visit_title}}</h2>
+      {{#visit}}<ul class="details">
+        {{#details}}<li><b>{{label}}</b><span>{{value}}</span></li>
+        {{/details}}
+        {{#what3words}}<li><b>what3words</b><span><a class="link" href="https://what3words.com/{{what3words}}" target="_blank" rel="noopener">///{{what3words}}</a></span></li>{{/what3words}}
+      </ul>
+      <p class="visit-links"><a class="link" href="{{directions_url}}" target="_blank" rel="noopener">{{directions_label}}</a><a class="link" href="visit.html">More about us</a></p>{{/visit}}
+    </div>
+    {{#visit}}<div class="map"><iframe title="Map of Hybrid Hub" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="{{map_embed_url}}"></iframe></div>{{/visit}}
+  </div>
+</section>{{/show_visit}}
+
+{{#faqs.0}}<section style="padding-top:0" aria-labelledby="q">
+  <div class="wrap">
+    <h2 id="q">{{faqs_title}}</h2>
+    <div class="faqs">{{#faqs}}<details class="faq"><summary>{{question}}</summary><p>{{answer}}</p></details>{{/faqs}}</div>
+  </div>
+</section>{{/faqs.0}}
+
+{{#closing_title}}<section style="padding-top:0" aria-labelledby="c">
+  <div class="wrap">
+    <div class="announce">
+      <div><h2 id="c">{{closing_title}}</h2><p>{{closing_text}}</p></div>
+      {{#closing_button_link}}<div class="actions"><a class="btn" href="{{closing_button_link}}">{{closing_button_label}}</a></div>{{/closing_button_link}}
+    </div>
+  </div>
+</section>{{/closing_title}}
+{{/landing}}
+</main>
+{{> footer}}
+</body>
+</html>

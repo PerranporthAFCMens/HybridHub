@@ -7,24 +7,6 @@
       <h2 class="points-title">{{points_title}}</h2>
       <ol class="points">{{#points}}<li>{{.}}</li>{{/points}}</ol>
     </aside>
-    <div class="form-card">
-      <div class="form-head">
-        <h2>{{form_heading}}</h2>
-        <p>{{form_intro}}</p>
-      </div>
-      <form class="form" data-form data-key="{{site.form_key}}" data-subject="{{email_subject}}" novalidate>
-        {{#fields}}<div class="q"{{#show_when_attr}} data-show-when="{{show_when_attr}}" hidden{{/show_when_attr}}>{{#is_note}}<p class="form-note">{{label}}</p>{{/is_note}}{{#is_text}}<label class="field"><span>{{label}}{{^required}} <em>Optional</em>{{/required}}</span><input name="{{name}}"{{#required}} required{{/required}}></label>{{/is_text}}{{#is_email}}<label class="field"><span>{{label}}{{^required}} <em>Optional</em>{{/required}}</span><input type="email" name="{{name}}" autocomplete="email"{{#required}} required{{/required}}></label>{{/is_email}}{{#is_tel}}<label class="field"><span>{{label}}{{^required}} <em>Optional</em>{{/required}}</span><input type="tel" name="{{name}}" autocomplete="tel"{{#required}} required{{/required}}></label>{{/is_tel}}{{#is_date}}<label class="field"><span>{{label}}{{^required}} <em>Optional</em>{{/required}}</span><input type="date" name="{{name}}"{{#required}} required{{/required}}></label>{{/is_date}}{{#is_textarea}}<label class="field"><span>{{label}}{{^required}} <em>Optional</em>{{/required}}</span><textarea name="{{name}}" rows="4"{{#required}} required{{/required}}></textarea></label>{{/is_textarea}}{{#is_select}}<label class="field"><span>{{label}}{{^required}} <em>Optional</em>{{/required}}</span><select name="{{name}}"{{#required}} required{{/required}}><option value="">Choose…</option>{{#options}}<option>{{.}}</option>{{/options}}</select></label>{{/is_select}}{{#is_radio}}<fieldset class="field" data-group="{{name}}"{{#required}} data-required{{/required}}><legend>{{label}}{{^required}} <em>Optional</em>{{/required}}</legend><div class="options">{{#options}}<label class="option"><input type="radio" name="{{name}}" value="{{.}}"><span>{{.}}</span></label>{{/options}}</div></fieldset>{{/is_radio}}{{#is_checkboxes}}<fieldset class="field" data-group="{{name}}"{{#required}} data-required{{/required}}><legend>{{label}}{{^required}} <em>Optional</em>{{/required}}</legend><div class="chips">{{#options}}<label class="chip"><input type="checkbox" name="{{name}}" value="{{.}}"><span>{{.}}</span></label>{{/options}}</div></fieldset>{{/is_checkboxes}}</div>
-        {{/fields}}<input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <p class="form-msg" role="alert"></p>
-        {{#privacy.form_line}}<p class="form-privacy">{{privacy.form_line}} <a href="privacy.html">Privacy notice</a></p>{{/privacy.form_line}}
-        <button class="btn" type="submit">{{button_label}}</button>
-      </form>
-      <div class="form-done" hidden>
-        <div class="tick" aria-hidden="true"></div>
-        <h2>{{success_title}}</h2>
-        <p>{{success_message}}</p>
-        <a class="link" href="index.html">Back to home</a>
-      </div>
-    </div>
+    {{> formcard}}
   </div>
 </section>

@@ -65,5 +65,7 @@
     }
   ],
   "class_types_link_label": "See memberships",
-  "class_types_link": "memberships.html"
+  "class_types_link": "memberships.html",
+  "hyrox_link_label": "HYROX training in Newquay",
+  "hyrox_link": "hyrox-newquay.html"
 }
