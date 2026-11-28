@@ -101,6 +101,8 @@ content:
           - { name: text, label: One-line description, type: text }
       - { name: class_types_link_label, label: Link text under class types, type: string }
       - { name: class_types_link, label: Link under class types, type: string }
+      - { name: hyrox_link_label, label: Second link text under class types, type: string }
+      - { name: hyrox_link, label: "Second link under class types (e.g. the HYROX page)", type: string }
       - name: sections
         label: Sections (photo and text)
         type: object
@@ -281,6 +283,132 @@ content:
       - { name: closing_text, label: Closing text, type: text }
       - { name: book_label, label: Booking button text, type: string }
       - { name: book_url, label: "Booking link (leave empty to hide the button)", type: string }
+
+  - name: hyrox
+    label: HYROX page (hyrox-newquay)
+    type: file
+    path: content/hyrox.json
+    format: json
+    fields:
+      - { name: title, label: Headline, type: string }
+      - { name: seo_title, label: Title for Google (browser tab and search results), type: string }
+      - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results." }
+      - { name: kicker, label: Small line above the headline, type: string }
+      - { name: intro, label: Intro, type: text }
+      - { name: location_line, label: "Line about where we are (e.g. how far from Fistral). Leave empty to hide", type: string }
+      - { name: image, label: Photo, type: image }
+      - { name: image_alt, label: Photo description (for screen readers), type: string }
+      - { name: button_label, label: Button text, type: string }
+      - { name: button_link, label: Button link, type: string }
+      - { name: link_label, label: Second link text, type: string }
+      - { name: link_url, label: Second link, type: string }
+      - { name: people_title, label: Athletes and coaches heading, type: string }
+      - { name: people_intro, label: Athletes and coaches intro, type: text }
+      - name: people
+        label: Athletes and coaches
+        description: "One card each. A card only shows on the site once it has a name, and the whole section stays hidden until then."
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{name}" } }
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: role, label: "Role (e.g. Head coach)", type: string }
+          - { name: achievements, label: "Achievements, one per line (e.g. HYROX World Champion 2025, Elite 15)", type: string, list: true }
+          - { name: image, label: Photo, type: image }
+          - { name: image_alt, label: Photo description, type: string }
+          - { name: instagram, label: "Instagram name, without @ (optional)", type: string }
+      - { name: blocks_title, label: Three boxes heading, type: string }
+      - { name: blocks_intro, label: Three boxes intro, type: text }
+      - name: blocks
+        label: Boxes
+        type: object
+        list: { max: 6, collapsible: { collapsed: true, summary: "{title}" } }
+        fields:
+          - { name: title, label: Heading, type: string }
+          - { name: text, label: Text, type: text }
+      - name: sections
+        label: Sections (photo and text)
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{title}" } }
+        fields:
+          - { name: title, label: Heading, type: string }
+          - { name: image, label: Photo, type: image }
+          - { name: image_alt, label: Photo description, type: string }
+          - { name: paragraphs, label: Paragraphs, type: text, list: true }
+          - { name: link_label, label: Link text, type: string }
+          - { name: link_url, label: Link, type: string }
+      - { name: show_dropin_form, label: Show the drop-in form on this page, type: boolean, description: "Uses the questions from the Drop-in page." }
+      - { name: form_title, label: Drop-in form heading, type: string }
+      - { name: show_visit, label: Show address and map, type: boolean, description: "Uses the details from the Visit page." }
+      - { name: visit_title, label: Address and map heading, type: string }
+      - { name: faqs_title, label: Questions heading, type: string }
+      - name: faqs
+        label: Questions and answers
+        description: "These also go to Google, which can show them under the page in search results."
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{question}" } }
+        fields:
+          - { name: question, label: Question, type: string }
+          - { name: answer, label: Answer, type: text }
+      - { name: closing_title, label: "Black box at the bottom: heading (leave empty to hide)", type: string }
+      - { name: closing_text, label: Black box text, type: text }
+      - { name: closing_button_label, label: Black box button text, type: string }
+      - { name: closing_button_link, label: Black box button link, type: string }
+
+  - name: visitors
+    label: Visitors page (drop-in-newquay)
+    type: file
+    path: content/visitors.json
+    format: json
+    fields:
+      - { name: title, label: Headline, type: string }
+      - { name: seo_title, label: Title for Google (browser tab and search results), type: string }
+      - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results." }
+      - { name: kicker, label: Small line above the headline, type: string }
+      - { name: intro, label: Intro, type: text }
+      - { name: location_line, label: "Line about where we are (e.g. how far from Fistral). Leave empty to hide", type: string }
+      - { name: image, label: Photo, type: image }
+      - { name: image_alt, label: Photo description (for screen readers), type: string }
+      - { name: button_label, label: Button text, type: string }
+      - { name: button_link, label: Button link, type: string }
+      - { name: link_label, label: Second link text, type: string }
+      - { name: link_url, label: Second link, type: string }
+      - { name: blocks_title, label: Three boxes heading, type: string }
+      - { name: blocks_intro, label: Three boxes intro, type: text }
+      - name: blocks
+        label: Boxes
+        type: object
+        list: { max: 6, collapsible: { collapsed: true, summary: "{title}" } }
+        fields:
+          - { name: title, label: Heading, type: string }
+          - { name: text, label: Text, type: text }
+      - name: sections
+        label: Sections (photo and text)
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{title}" } }
+        fields:
+          - { name: title, label: Heading, type: string }
+          - { name: image, label: Photo, type: image }
+          - { name: image_alt, label: Photo description, type: string }
+          - { name: paragraphs, label: Paragraphs, type: text, list: true }
+          - { name: link_label, label: Link text, type: string }
+          - { name: link_url, label: Link, type: string }
+      - { name: show_dropin_form, label: Show the drop-in form on this page, type: boolean, description: "Uses the questions from the Drop-in page." }
+      - { name: form_title, label: Drop-in form heading, type: string }
+      - { name: show_visit, label: Show address and map, type: boolean, description: "Uses the details from the Visit page." }
+      - { name: visit_title, label: Address and map heading, type: string }
+      - { name: faqs_title, label: Questions heading, type: string }
+      - name: faqs
+        label: Questions and answers
+        description: "These also go to Google, which can show them under the page in search results."
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{question}" } }
+        fields:
+          - { name: question, label: Question, type: string }
+          - { name: answer, label: Answer, type: text }
+      - { name: closing_title, label: "Black box at the bottom: heading (leave empty to hide)", type: string }
+      - { name: closing_text, label: Black box text, type: text }
+      - { name: closing_button_label, label: Black box button text, type: string }
+      - { name: closing_button_link, label: Black box button link, type: string }
 
   - name: site
     label: Site settings

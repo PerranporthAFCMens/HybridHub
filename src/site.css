@@ -299,3 +299,24 @@ h1,h2,h3{text-wrap:balance}
 .form-privacy{margin:0;font-size:13px;line-height:1.5;color:var(--muted)}
 .form-privacy a{color:inherit}
 @media (max-width:600px){footer nav{width:100%;justify-content:space-between;gap:12px 10px;font-size:13px;white-space:nowrap}}
+
+/* Landing pages (HYROX, visitors) */
+.lp-actions{margin-top:32px}
+.lp-kit{margin-top:32px}
+.lp-kit .kit-item h3{font-size:20px;margin-bottom:12px}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,40px);margin-top:32px}
+.person .photo{aspect-ratio:4/5}
+.person h3{font-size:20px}
+.person-role{color:var(--muted);margin:8px 0 0}
+.person-wins{list-style:none;padding:0;margin:16px 0 18px;border-top:1px solid var(--ink)}
+.person-wins li{padding:10px 0;border-bottom:1px solid var(--line);font-weight:500;font-size:15px}
+@media (max-width:860px){.people{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.people{grid-template-columns:1fr}.person .photo{aspect-ratio:4/5}}
+.form-aside h2{font-size:clamp(28px,3.6vw,40px)}
+.faqs{margin-top:28px;border-top:1px solid var(--ink);max-width:820px}
+.faq{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:24px;padding:22px 0;font-weight:600;font-size:18px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:800 22px/1 var(--display);flex:none}
+.faq[open] summary::after{content:"–"}
+.faq p{color:var(--muted);margin:-6px 0 22px;max-width:64ch}

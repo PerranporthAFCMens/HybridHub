@@ -16,6 +16,9 @@ const path = require('path');
 const ROOT = __dirname;
 const OUT = path.join(ROOT, '_site');
 const PAGES = ['index', 'train', 'memberships', 'visit', 'apply', 'dropin', 'recovery', 'privacy'];
+// Landing pages for searches (e.g. "HYROX training Newquay"). Each is src/landing.html filled from its own content file.
+// Address on the site → content file.
+const LANDINGS = { 'hyrox-newquay': 'hyrox', 'drop-in-newquay': 'visitors' };
 // Pages from the old Wix site (from its sitemap) and where they now live. The 404 page has the same list as a fallback.
 const OLD_WIX_PAGES = {
   'applytojointhehub': 'apply.html',
@@ -281,12 +284,21 @@ async function build() {
     recovery: readJSON('recovery'),
     privacy: readJSON('privacy'),
   });
+  for (const name of Object.values(LANDINGS)) data[name] = relativeAssets(readJSON(name));
   data.train.timetable_days = await loadTimetable(data.train);
   data.train.use_own_timetable = !!data.train.timetable_days;
   data.train.use_embed = !data.train.timetable_days;
   data.home.instagram_posts = await loadInstagram(data.site);
   data.apply.fields = prepareFields(data.apply.fields, 'apply.json');
   data.dropin.fields = prepareFields(data.dropin.fields, 'dropin.json');
+
+  // Athletes and coaches only appear once they have a name, so an empty card never shows.
+  for (const name of Object.values(LANDINGS)) {
+    const l = data[name];
+    l.people = (l.people || []).filter((x) => x && String(x.name || '').trim())
+      .map((x) => Object.assign({}, x, { achievements: (x.achievements || []).filter((a) => String(a || '').trim()), instagram: String(x.instagram || '').replace(/^@/, '').trim() }));
+    l.faqs = (l.faqs || []).filter((f) => f && f.question && f.answer);
+  }
 
   fs.rmSync(OUT, { recursive: true, force: true });
   fs.mkdirSync(OUT, { recursive: true });
@@ -305,6 +317,24 @@ async function build() {
     const schema = base && (page === 'index' || page === 'visit') ? businessSchema(data, base) : '';
     fs.writeFileSync(path.join(OUT, file), render(tpl, [ctx], file).replace('<!--business-schema-->', schema));
   }
+  for (const [slug, name] of Object.entries(LANDINGS)) {
+    const l = data[name];
+    const base = siteBaseFor(data);
+    const ctx = Object.assign({}, data, {
+      landing: l, page: slug,
+      page_url: base + '/' + slug + '.html',
+      page_description: l.seo_description || data.site.description,
+      page_title: `${l.seo_title || l.title} · ${data.site.title}`,
+      og_image: base + '/' + String(l.image || data.home.hero.image || '').replace(/^\//, ''),
+    });
+    // Questions also go to Google as an FAQ, so they can show under the page in search results.
+    const faq = l.faqs.length ? '<script type="application/ld+json">' + JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'FAQPage',
+      mainEntity: l.faqs.map((f) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })),
+    }).replace(/</g, '\\u003c') + '</script>' : '';
+    const tpl = fs.readFileSync(path.join(ROOT, 'src', 'landing.html'), 'utf8');
+    fs.writeFileSync(path.join(OUT, slug + '.html'), render(tpl, [ctx], slug + '.html').replace('<!--business-schema-->', (base ? businessSchema(data, base) : '') + faq));
+  }
   // start.html: START is now part of the Apply page; this small page sends old links there.
   for (const f of ['site.css', 'site.js', 'favicon.svg', 'apple-touch-icon.png', '404.html', 'start.html']) fs.copyFileSync(path.join(ROOT, 'src', f), path.join(OUT, f));
   // Old addresses from the Wix site get a small page that sends visitors (and Google) to the new page.
@@ -322,11 +352,11 @@ async function build() {
   const listed = data.site.launched && siteBase;
   fs.writeFileSync(path.join(OUT, 'robots.txt'), data.site.launched ? 'User-agent: *\nAllow: /\n' + (listed ? `Sitemap: ${siteBase}/sitemap.xml\n` : '') : 'User-agent: *\nDisallow: /\n');
   if (listed) {
-    const urls = PAGES.map((p) => `  <url><loc>${siteBase}${p === 'index' ? '/' : '/' + p + '.html'}</loc></url>`).join('\n');
+    const urls = PAGES.concat(Object.keys(LANDINGS)).map((p) => `  <url><loc>${siteBase}${p === 'index' ? '/' : '/' + p + '.html'}</loc></url>`).join('\n');
     fs.writeFileSync(path.join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
   }
   fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
-  console.log(`Built ${PAGES.length} pages into _site/ (${data.site.launched ? 'launched' : 'preview, not indexed'})`);
+  console.log(`Built ${PAGES.length + Object.keys(LANDINGS).length} pages into _site/ (${data.site.launched ? 'launched' : 'preview, not indexed'})`);
 }
 
 if (require.main === module) {

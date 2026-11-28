@@ -1,0 +1,40 @@
+{
+  "title": "Visiting Newquay? Train with us.",
+  "seo_title": "Gym in Newquay for visitors and drop-ins",
+  "seo_description": "On holiday in Newquay? Hybrid Hub at Prow Park is open 24 hours, with coached classes and Hyperice recovery. Book a drop-in session.",
+  "kicker": "Drop-in gym · Newquay, Cornwall",
+  "intro": "On holiday, surfing Fistral or here for work? Keep your training going at Hybrid Hub, a premium gym at Prow Park.",
+  "location_line": "",
+  "image": "/images/open-gym.jpg",
+  "image_alt": "The open gym at Hybrid Hub",
+  "button_label": "Book a drop-in session",
+  "button_link": "#book",
+  "link_label": "See the class timetable",
+  "link_url": "train.html#timetable",
+  "blocks_title": "What's here",
+  "blocks_intro": "",
+  "blocks": [
+    { "title": "Open gym", "text": "Premium equipment in a gym that's open 24 hours, so you can train around your plans." },
+    { "title": "Coached classes", "text": "HYROX, ATHX and hybrid strength and conditioning classes, from morning to evening." },
+    { "title": "Recovery", "text": "Hyperice Normatec compression, contrast therapy and the Vyper roller. Pay for a slot via the WodBoard shop." }
+  ],
+  "sections": [],
+  "people_title": "",
+  "people_intro": "",
+  "people": [],
+  "show_dropin_form": true,
+  "form_title": "Book a drop‑in session",
+  "show_visit": true,
+  "visit_title": "Finding us",
+  "faqs_title": "Questions",
+  "faqs": [
+    { "question": "Do I need to be a member to train?", "answer": "No. Book a drop-in session, leave your details and we'll call you to book you in." },
+    { "question": "When is the gym open?", "answer": "The gym is open 24 hours. Classes run from morning to evening; see the timetable on the Train page." },
+    { "question": "What should I bring?", "answer": "Your training kit, trainers and a water bottle." },
+    { "question": "Where are you?", "answer": "Prow Park, Newquay, Cornwall, TR7 2SX. Search for Hybrid Hub NQY in Google Maps, or use what3words ///curl.headset.grief." }
+  ],
+  "closing_title": "",
+  "closing_text": "",
+  "closing_button_label": "",
+  "closing_button_link": ""
+}

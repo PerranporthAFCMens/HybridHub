@@ -1,0 +1,49 @@
+{
+  "title": "HYROX training in Newquay",
+  "seo_title": "HYROX training in Newquay, Cornwall",
+  "seo_description": "Train for HYROX in Newquay at Hybrid Hub, a HYROX affiliated gym at Prow Park. Coached HYROX classes, a run club and a 24 hour open gym.",
+  "kicker": "HYROX affiliated gym · Newquay",
+  "intro": "Coached HYROX classes, a run club and a 24 hour open gym at Prow Park. Whether it's your first race or you're chasing a podium, train for it here.",
+  "image": "/images/class-zone.jpg",
+  "image_alt": "The class zone at Hybrid Hub",
+  "button_label": "Apply to join",
+  "button_link": "apply.html",
+  "link_label": "Book a drop-in session",
+  "link_url": "dropin.html",
+  "blocks_title": "What is HYROX?",
+  "blocks_intro": "A fitness race for everyone: 8 × 1 km runs, each followed by a workout station. The format is the same at every race around the world, so you can measure your progress.",
+  "blocks": [
+    { "title": "8 × 1 km runs", "text": "Half of the race is running, so a strong engine matters as much as strength." },
+    { "title": "8 stations", "text": "SkiErg, sled push, sled pull, burpee broad jumps, rowing, farmers carry, sandbag lunges and wall balls." },
+    { "title": "Race your way", "text": "Race on your own, with a partner in Doubles, or as a relay team of four." }
+  ],
+  "sections": [
+    {
+      "title": "How we train for it",
+      "image": "/images/platform.jpg",
+      "image_alt": "Training equipment at Hybrid Hub",
+      "paragraphs": [
+        "Our HYROX classes combine running with HYROX stations to build the fitness and pacing you need for race day.",
+        "HYROX Two Gen is a shorter 30-minute session, and Run Club is a 45-minute group run. Between classes, the open gym is yours 24 hours a day."
+      ],
+      "link_label": "See the class timetable",
+      "link_url": "train.html#timetable"
+    }
+  ],
+  "people_title": "Train with HYROX athletes",
+  "people_intro": "Our coaches race HYROX too. Learn from people who know what race day takes.",
+  "people": [],
+  "show_dropin_form": false,
+  "show_visit": false,
+  "faqs_title": "Questions",
+  "faqs": [
+    { "question": "Do I need to be fit to start HYROX training?", "answer": "No. Every class is coached, so you can work at your own level. If you're new to training, our START small groups are a good first step." },
+    { "question": "Can I train for my first HYROX race here?", "answer": "Yes. Our HYROX classes build the running, the station work and the pacing you need for your first race." },
+    { "question": "Which membership do I need?", "answer": "Full membership includes unlimited coached classes, and Hybrid 2X includes 2 classes a week. See the Memberships page for every option." },
+    { "question": "I'm visiting Newquay. Can I train with you?", "answer": "Yes. Book a drop-in session, leave your details and we'll call you to book you in." }
+  ],
+  "closing_title": "Ready for race day?",
+  "closing_text": "Apply to join and we'll be in touch to get you started.",
+  "closing_button_label": "Apply to join",
+  "closing_button_link": "apply.html"
+}
