@@ -3,13 +3,8 @@
   "seo_description": "Class timetable and class types at Hybrid Hub Newquay: coached hybrid, HYROX, ATHX and Run Club sessions, plus START small group training for beginners.",
   "intro": "Coached classes, a 24-hour open gym and a recovery zone, all under one roof at Prow Park.",
   "timetable_title": "A class for everyone",
-  "timetable_style": "own",
   "timetable_default_view": "week",
-  "timetable_data_url": "https://www.wodboard.com/locations/855/timetable/e0ef59abf3/data.json",
   "timetable_book_label": "Book",
-  "timetable_book_url": "https://www.wodboard.com/locations/855/timetable/e0ef59abf3",
-  "timetable_class_url": "https://www.wodboard.com/events/{id}",
-  "timetable_embed_url": "https://www.wodboard.com/locations/855/timetable/e0ef59abf3?adi=1",
   "sections": [
     {
       "title": "Hybrid Hub START",

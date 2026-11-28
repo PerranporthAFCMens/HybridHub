@@ -67,14 +67,6 @@ content:
       - { name: seo_description, label: Description for Google (this page), type: text, description: "One or two sentences shown under the page in Google results. Leave empty to use the one in Site settings." }
       - { name: intro, label: Intro, type: text }
       - { name: timetable_title, label: Timetable heading, type: string }
-      - name: timetable_style
-        label: Timetable style
-        type: select
-        description: "Our design shows WodBoard's classes in the site's own style (updated every hour). WodBoard's design shows their embedded timetable."
-        options:
-          values:
-            - { value: own, label: Our design }
-            - { value: embed, label: WodBoard's design }
       - name: timetable_default_view
         label: Timetable opens on (our design only)
         type: select
@@ -84,12 +76,7 @@ content:
             - { value: week, label: Week }
             - { value: day, label: Day }
       - { name: timetable_book_label, label: Book button text, type: string }
-      - { name: timetable_book_url, label: "Book button link (used when a class can't be linked on its own)", type: string }
-      - { name: timetable_class_url, label: "Book link for each class (WodBoard, {id} is the class). Leave empty to use the Book button link", type: string }
-      - { name: timetable_data_url, label: "WodBoard class data link (our design only, don't change)", type: string }
       - { name: timetable_link_label, label: Timetable link text, type: string }
-      - { name: timetable_url, label: Full timetable link (WodBoard), type: string }
-      - { name: timetable_embed_url, label: Timetable shown on the page (WodBoard embed link), type: string }
       - { name: class_types_title, label: Class types heading, type: string }
       - { name: class_types_intro, label: Class types intro, type: text }
       - name: class_types
@@ -416,22 +403,14 @@ content:
     path: content/site.json
     format: json
     fields:
-      - { name: launched, label: "Site is launched (shows to search engines, hides the preview banner)", type: boolean }
-      - { name: site_url, label: "Web address (don't change unless the domain changes)", type: string }
       - { name: title, label: Site name (browser tab), type: string }
       - { name: description, label: Description for Google, type: text }
       - { name: footer_line, label: Footer text, type: string }
       - { name: instagram, label: "Instagram handle (without the @)", type: string }
-      - { name: instagram_feed_url, label: "Instagram feed link (from behold.so; leave empty to hide the photos)", type: string, description: "Starts with https://feeds.behold.so/. Shows the latest 6 posts on the home page." }
       - { name: google_profile_url, label: "Google Business Profile link (leave empty to hide)", type: string, description: "In your Google Business Profile, press Share and copy the link (it starts https://maps.app.goo.gl/ or https://g.page/). Shown on the Visit page and given to Google so it knows the profile and the site are the same business." }
       - { name: google_review_url, label: "Google review link (leave empty to hide)", type: string, description: "In your Google Business Profile, press Ask for reviews and copy the link. Adds a Leave a Google review link on the Visit page and in the footer." }
       - { name: postcode, label: Postcode, type: string, description: "Exactly as on the Google Business Profile. Helps Google match the site to the profile." }
       - { name: join_label, label: Join button text, type: string }
-      - { name: form_key, label: Form key (from web3forms.com), type: string, description: "The Apply form is emailed to the address this key was created with." }
-      - { name: analytics_token, label: "Visitor stats token (from Cloudflare Web Analytics; leave empty to turn off)", type: string, description: "In Cloudflare, Web Analytics → your site → Manage site, copy the token from the snippet (the letters and numbers after \"token\":)." }
-      - { name: preview_banner, label: Preview banner text (only before launch), type: string }
-      - { name: compare_label, label: Banner link text (only before launch), type: string }
-      - { name: compare_url, label: "Banner link, e.g. the old site (leave empty to hide)", type: string }
 
   - name: privacy
     label: Privacy notice
@@ -451,3 +430,39 @@ content:
         fields:
           - { name: heading, label: Heading, type: string }
           - { name: text, label: Text, type: text, description: "Leave an empty line between paragraphs." }
+
+  - name: settings
+    label: "Technical settings (don't change)"
+    type: file
+    path: content/settings.json
+    format: json
+    fields:
+      - name: site
+        label: Website
+        type: object
+        fields:
+          - { name: launched, label: "Site is launched (shows to search engines, hides the preview banner)", type: boolean }
+          - { name: site_url, label: "Web address (don't change unless the domain changes)", type: string }
+          - { name: form_key, label: Form key (from web3forms.com), type: string, description: "The Apply form is emailed to the address this key was created with." }
+          - { name: analytics_token, label: "Visitor stats token (from Cloudflare Web Analytics; leave empty to turn off)", type: string, description: "In Cloudflare, Web Analytics → your site → Manage site, copy the token from the snippet (the letters and numbers after \"token\":)." }
+          - { name: instagram_feed_url, label: "Instagram feed link (from behold.so; leave empty to hide the photos)", type: string, description: "Starts with https://feeds.behold.so/. Shows the latest 6 posts on the home page." }
+          - { name: preview_banner, label: Preview banner text (only before launch), type: string }
+          - { name: compare_label, label: Banner link text (only before launch), type: string }
+          - { name: compare_url, label: "Banner link, e.g. the old site (leave empty to hide)", type: string }
+      - name: timetable
+        label: Timetable (WodBoard links)
+        type: object
+        fields:
+          - name: timetable_style
+            label: Timetable style
+            type: select
+            description: "Our design shows WodBoard's classes in the site's own style (updated every hour). WodBoard's design shows their embedded timetable."
+            options:
+              values:
+                - { value: own, label: Our design }
+                - { value: embed, label: WodBoard's design }
+          - { name: timetable_book_url, label: "Book button link (used when a class can't be linked on its own)", type: string }
+          - { name: timetable_class_url, label: "Book link for each class (WodBoard, {id} is the class). Leave empty to use the Book button link", type: string }
+          - { name: timetable_data_url, label: "WodBoard class data link (our design only, don't change)", type: string }
+          - { name: timetable_url, label: Full timetable link (WodBoard), type: string }
+          - { name: timetable_embed_url, label: Timetable shown on the page (WodBoard embed link), type: string }
