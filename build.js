@@ -335,6 +335,9 @@ async function build() {
     const tpl = fs.readFileSync(path.join(ROOT, 'src', 'landing.html'), 'utf8');
     fs.writeFileSync(path.join(OUT, slug + '.html'), render(tpl, [ctx], slug + '.html').replace('<!--business-schema-->', (base ? businessSchema(data, base) : '') + faq));
   }
+  // ig.html: the clean link for the Instagram bio (hybridhubnqy.co.uk/ig). It is the home page under its own
+  // address, so visits show as /ig in Cloudflare and form emails say Instagram. Its canonical link points to the home page.
+  fs.copyFileSync(path.join(OUT, 'index.html'), path.join(OUT, 'ig.html'));
   // start.html: START is now part of the Apply page; this small page sends old links there.
   for (const f of ['site.css', 'site.js', 'favicon.svg', 'apple-touch-icon.png', '404.html', 'start.html']) fs.copyFileSync(path.join(ROOT, 'src', f), path.join(OUT, f));
   // Old addresses from the Wix site get a small page that sends visitors (and Google) to the new page.

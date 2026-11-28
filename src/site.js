@@ -12,6 +12,8 @@ var hhSource=(function(){
   if(saved!=null)return saved;
   var q=function(n){var m=location.search.match(new RegExp('[?&]'+n+'=([^&]*)'));return m?decodeURIComponent(m[1].replace(/\+/g,' ')):''};
   var parts=[],utm=[q('utm_source'),q('utm_medium'),q('utm_campaign')].filter(Boolean).join(' / ');
+  // hybridhubnqy.co.uk/ig is the link in the Instagram bio (Instagram's app often hides where a visit came from).
+  if(!utm&&/^\/ig(\.html)?\/?$/.test(location.pathname))utm='instagram / bio link';
   if(utm)parts.push(utm);
   var ref='';try{var r=new URL(document.referrer);if(r.hostname&&r.hostname!==location.hostname)ref=r.hostname.replace(/^www\./,'')}catch(e){}
   if(ref)parts.push('from '+ref);
