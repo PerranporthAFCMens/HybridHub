@@ -19,13 +19,13 @@ The Hybrid Hub Newquay website: four pages (Home, Train, Memberships, Visit).
 
 1. Go to https://app.pagescms.org and sign in with GitHub.
 2. Install the Pages CMS GitHub app when it asks, and give it access to **HybridHub** only. Then open the repository.
-3. Invite each owner by email under **Collaborators**. They don't need a GitHub account: they sign in with the emailed link and see a section for each page plus Site settings.
+3. Invite each owner by email under **Collaborators**. They don't need a GitHub account: they sign in with the emailed link and see a section for each page plus Site settings, and a Technical settings section at the bottom (`content/settings.json`: launch switch, form key, visitor stats token, Instagram feed and WodBoard links) that they should leave alone.
 
 ## Forms (one-time setup)
 
 The Apply to join form is emailed to the owners by [Web3Forms](https://web3forms.com) (free, up to 250 a month, no account needed).
 1. On web3forms.com, enter the email address that should receive them and copy the **Access Key** it emails you.
-2. Pages CMS → **Site settings** → paste it into **Form key** → Save.
+2. Pages CMS → **Technical settings** → paste it into **Form key** → Save.
 The key is meant to be public, so it's fine in this repository. Until it's added, the forms tell visitors they can't send yet.
 The questions can be changed in Pages CMS (Apply page → Questions). START is one of the membership choices on that form: its days and times questions use **Show only when** (START), so they only appear when START is picked. The old START page address (start.html) now sends visitors to the Apply page with START already picked.
 
@@ -41,16 +41,16 @@ GitHub pauses hourly workflows in a repository with no activity for 60 days. Any
 
 ## Instagram
 
-The home page shows the latest 6 Instagram posts, read through a free [Behold](https://behold.so) feed each time the site publishes (hourly). Set it up once: sign in at behold.so with the gym's Instagram, create a **JSON feed**, copy its link (`https://feeds.behold.so/...`) and paste it into Pages CMS → **Site settings** → **Instagram feed link**. Leave the link empty to hide the section. If the feed can't be reached, the section is hidden until the next publish. Behold's free plan refreshes posts once a day and allows 1,200 feed reads a month; the site uses about 750.
+The home page shows the latest 6 Instagram posts, read through a free [Behold](https://behold.so) feed each time the site publishes (hourly). Set it up once: sign in at behold.so with the gym's Instagram, create a **JSON feed**, copy its link (`https://feeds.behold.so/...`) and paste it into Pages CMS → **Technical settings** → **Instagram feed link**. Leave the link empty to hide the section. If the feed can't be reached, the section is hidden until the next publish. Behold's free plan refreshes posts once a day and allows 1,200 feed reads a month; the site uses about 750.
 
 ## Launching
 
-Before launch the site shows a "Preview" banner and asks search engines not to list it. When it's ready: Pages CMS → **Site settings** → tick **Site is launched** → Save.
+Before launch the site shows a "Preview" banner and asks search engines not to list it. When it's ready: Pages CMS → **Technical settings** → tick **Site is launched** → Save.
 
 Moving from new.hybridhubnqy.co.uk to the main address, in this order:
 1. **Wix DNS** (the domain is registered and managed at Wix): point the bare domain's A records at GitHub Pages (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) and change `www` to a CNAME for `perranporthafcmens.github.io`. Leave the MX/TXT records alone.
 2. **GitHub** → Settings → Pages → Custom domain: `hybridhubnqy.co.uk` (www then redirects to it, and new.hybridhubnqy.co.uk stops serving the site).
-3. **Pages CMS** → Site settings → tick **Site is launched**. The Web address there is `https://hybridhubnqy.co.uk`.
+3. **Pages CMS** → Technical settings → tick **Site is launched**. The Web address there is `https://hybridhubnqy.co.uk`.
 4. When GitHub has issued the certificate (up to an hour), tick **Enforce HTTPS** in Settings → Pages.
 5. Check the site, send one real Apply form, then submit `https://hybridhubnqy.co.uk/sitemap.xml` in Google Search Console.
 6. Cancel the Wix **site plan** only. The domain is a separate Wix subscription and must keep renewing, or the address stops working.

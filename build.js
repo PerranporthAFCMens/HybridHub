@@ -284,6 +284,11 @@ async function build() {
     recovery: readJSON('recovery'),
     privacy: readJSON('privacy'),
   });
+  // Technical settings live in their own file (Pages CMS → Technical settings), so editing a page can never
+  // wipe them. They are merged back in so the pages read them exactly as before.
+  const settings = readJSON('settings');
+  Object.assign(data.site, settings.site || {});
+  Object.assign(data.train, settings.timetable || {});
   for (const name of Object.values(LANDINGS)) data[name] = relativeAssets(readJSON(name));
   data.train.timetable_days = await loadTimetable(data.train);
   data.train.use_own_timetable = !!data.train.timetable_days;
